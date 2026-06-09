@@ -170,6 +170,24 @@ export const config = {
     ],
   },
 
+  // ── Hero background video ────────────────────────────────────────────────
+  // Drop your video in public/ (e.g. public/hero-bg.mp4) then set the path.
+  // Leave empty to use the animated orb background instead.
+  heroVideo: "",  // e.g. "/hero-bg.mp4"
+
+  // ── Video section ─────────────────────────────────────────────────────────
+  // Set ONE of youtubeUrl, vimeoUrl, or localVideo when your video is ready.
+  // Leave all three empty to show the "coming soon" placeholder.
+  videoSection: {
+    label: "Campaign Message",
+    title: "Why I'm Running",
+    description:
+      "Hear directly from Salman Arefin about the Cambridge he envisions, the problems he's committed to solving, and why the 2026 Regional Council election matters for every family in this city.",
+    youtubeUrl: "",   // e.g. "https://youtu.be/YOUR_VIDEO_ID"
+    vimeoUrl:   "",   // e.g. "https://vimeo.com/123456789"
+    localVideo: "",   // e.g. "/campaign-video.mp4"
+  },
+
   // ── Form webhook ─────────────────────────────────────────────────────────
   // Set VITE_FORM_WEBHOOK_URL in your .env file.
   // Compatible with Make, Zapier, n8n, or any endpoint that accepts JSON POST.

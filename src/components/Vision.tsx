@@ -38,11 +38,11 @@ export function Vision() {
           <p className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-primary-900 leading-[1.18] text-balance mb-8">
             {config.vision.quote}
           </p>
-          <footer>
+          <p>
             <cite className="not-italic text-accent-600 font-semibold text-lg tracking-wide">
               {config.vision.attribution}
             </cite>
-          </footer>
+          </p>
         </motion.blockquote>
 
         {/* Decorative rule */}

@@ -6,6 +6,7 @@ import { config } from '../config/candidate'
 const NAV_LINKS = [
   { label: 'About',      href: '#about'       },
   { label: 'Priorities', href: '#priorities'  },
+  { label: 'Watch',      href: '#video'       },
   { label: 'Donate',     href: '#donate'      },
   { label: 'Get Involved', href: '#get-involved' },
 ]

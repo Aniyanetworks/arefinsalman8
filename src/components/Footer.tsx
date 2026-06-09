@@ -8,11 +8,11 @@ export function Footer() {
       className="bg-primary-950 border-t border-white/[0.07]"
       role="contentinfo"
     >
-      {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+
+        {/* Top grid */}
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
 
-          {/* Candidate */}
           <div>
             <p className="font-display text-white font-bold text-xl mb-1.5">
               {config.candidate.name}
@@ -23,7 +23,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Contact */}
           <div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.12em] mb-3">
               Contact
@@ -36,7 +35,6 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Election */}
           <div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.12em] mb-3">
               Election Day
@@ -67,6 +65,23 @@ export function Footer() {
           </p>
 
         </div>
+
+        {/* Agency credit */}
+        <div className="border-t border-white/[0.05] mt-6 pt-5">
+          <p className="text-white/20 text-xs text-center tracking-wide">
+            Designed &amp; Developed by{' '}
+            <a
+              href="https://aniyanetworks.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/35 font-medium hover:text-accent-400 transition-colors"
+              aria-label="Aniya Network Solutions Inc. (opens in a new tab)"
+            >
+              Aniya Network Solutions Inc.
+            </a>
+          </p>
+        </div>
+
       </div>
     </footer>
   )
