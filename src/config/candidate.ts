@@ -15,16 +15,23 @@ export const config = {
       "Building a Cambridge that works for everyone who calls it home.",
 
     // ── About section ────────────────────────────────────────────────────────
-    bio: `Salman Arefin has lived in Cambridge for over 20 years — long enough to watch the city grow, and to worry about whether it's growing in the right direction. A civil engineer turned community organizer, he has spent the last decade working on the problems Cambridge families actually face: congestion, housing costs, and a regional government that too often makes decisions without enough community input.`,
+    // Separate paragraphs with \n\n — the About component renders each as its own <p>.
+    bio: `Community has always been at the heart of everything I do. Whether in business, volunteer work, or community initiatives, I have always believed that real progress happens when people come together around a shared goal.
 
-    whyRunning: `"Cambridge is at an inflection point. We have a once-in-a-generation opportunity to shape how our community grows — to get transit right, to protect our neighbourhoods, and to make sure the next generation can actually afford to live here. I'm running because Cambridge residents deserve a regional voice that's as committed to this city as they are."`,
+With a background in business development, branding, and entrepreneurship, I have spent years helping businesses, organizations, and community leaders grow, collaborate, and achieve meaningful results. These experiences have taught me the value of strategic thinking, strong relationships, and leadership that brings people together.
+
+I worked alongside residents, faith groups, volunteers, and community organizations to support families, coordinate resources, and strengthen community networks. Those experiences reinforced my belief that the strongest communities are built when people come together with a shared purpose.
+
+I am committed to being a strong voice for our community, building bridges across diverse groups, and ensuring that every resident feels heard, respected, and represented. Together, we can create new opportunities, address local challenges, and build a stronger future for everyone.`,
+
+    whyRunning: `"I believe leadership begins with listening, understanding people's concerns, and working tirelessly to find practical solutions. That is the approach I have followed throughout my career and community involvement, and it is the same approach I will bring to public service."`,
 
     highlights: [
-      "15+ years in municipal infrastructure planning and civil engineering",
-      "Former Chair, Cambridge Community Benefits Network (2019–2023)",
-      "Co-founder, East Cambridge Housing Action Group",
-      "Led Cambridge residents' budget consultation process, 2022",
-      "Parent of two children in Cambridge public schools",
+      "Background in business development, branding & entrepreneurship",
+      "Years of experience helping businesses and organizations grow",
+      "Community organizer working with residents, faith groups & volunteers",
+      "Track record coordinating resources and strengthening community networks",
+      "Committed to strategic leadership and practical, people-first solutions",
     ],
 
     // ── Career experience timeline ────────────────────────────────────────────

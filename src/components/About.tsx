@@ -52,18 +52,22 @@ export function About() {
                 animate={bioInView ? 'visible' : 'hidden'}
                 className="font-display text-4xl sm:text-[2.75rem] lg:text-5xl font-bold text-primary-900 leading-[1.08] mb-8 text-balance"
               >
-                A Cambridge neighbour.{' '}
+                A community builder.{' '}
                 <span className="text-accent-600">A committed advocate.</span>
               </motion.h2>
 
-              <motion.p
+              <motion.div
                 variants={fadeUp(0.16)}
                 initial="hidden"
                 animate={bioInView ? 'visible' : 'hidden'}
-                className="text-primary-700 text-lg leading-relaxed mb-8"
+                className="space-y-4 mb-8"
               >
-                {config.candidate.bio}
-              </motion.p>
+                {config.candidate.bio.split('\n\n').map((para, i) => (
+                  <p key={i} className="text-primary-700 text-lg leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </motion.div>
 
               <motion.blockquote
                 variants={fadeUp(0.24)}
