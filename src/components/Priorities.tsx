@@ -1,23 +1,31 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
+  Megaphone,
+  Scale,
   Bus,
   Home,
-  Leaf,
-  DollarSign,
-  Users,
-  Building2,
+  Shield,
+  GraduationCap,
+  Heart,
+  TreePine,
+  Brain,
+  MessageSquare,
   type LucideIcon,
 } from 'lucide-react'
 import { config } from '../config/candidate'
 
 const ICON_MAP: Record<string, LucideIcon> = {
+  Megaphone,
+  Scale,
   Bus,
   Home,
-  Leaf,
-  DollarSign,
-  Users,
-  Building2,
+  Shield,
+  GraduationCap,
+  Heart,
+  TreePine,
+  Brain,
+  MessageSquare,
 }
 
 export function Priorities() {
@@ -60,8 +68,8 @@ export function Priorities() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="text-white/55 text-lg mt-5 leading-relaxed"
           >
-            Six priorities shaped by what Cambridge families, workers, and businesses actually
-            need from Regional Council.
+            Ten commitments to Cambridge residents — on transit, housing, safety,
+            fairness, and a regional government that actually works for this city.
           </motion.p>
         </div>
 
@@ -79,7 +87,7 @@ export function Priorities() {
                 role="listitem"
                 initial={{ opacity: 0, y: 36 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.08 + i * 0.07, ease: 'easeOut' }}
+                transition={{ duration: 0.5, delay: 0.08 + i * 0.06, ease: 'easeOut' }}
                 className="group bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-accent-500/30 rounded-2xl p-7 transition-all duration-200 cursor-default"
               >
                 <div
@@ -87,15 +95,11 @@ export function Priorities() {
                   aria-hidden="true"
                 >
                   {Icon && (
-                    <Icon
-                      size={22}
-                      className="text-accent-400"
-                      aria-hidden={true}
-                    />
+                    <Icon size={22} className="text-accent-400" aria-hidden={true} />
                   )}
                 </div>
 
-                <h3 className="font-display text-[1.2rem] font-bold text-white mb-3 leading-snug">
+                <h3 className="font-display text-[1.15rem] font-bold text-white mb-3 leading-snug">
                   {priority.title}
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed">

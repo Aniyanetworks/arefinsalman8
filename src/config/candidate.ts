@@ -11,8 +11,7 @@ export const config = {
     title: "Regional Councillor — Cambridge",
 
     // Shown under the name in the hero (keep to one punchy sentence)
-    tagline:
-      "Building a Cambridge that works for everyone who calls it home.",
+    tagline: "Cambridge Deserves Its Fair Share.",
 
     // ── About section ────────────────────────────────────────────────────────
     // Separate paragraphs with \n\n — the About component renders each as its own <p>.
@@ -78,43 +77,66 @@ I am committed to being a strong voice for our community, building bridges acros
 
   // ── Platform cards ─────────────────────────────────────────────────────────
   // icon: any name from https://lucide.dev/icons
-  // 3–6 items recommended
   priorities: [
     {
-      icon: "Bus",
-      title: "Transit That Works",
+      icon: "Megaphone",
+      title: "Cambridge Needs a Stronger Voice",
       description:
-        "Push for the ION LRT extension to Cambridge and real improvements to local bus service, so residents have genuine alternatives to driving.",
+        "Cambridge should never feel like an afterthought at the Region. I will fight for Cambridge to be heard where decisions on regional services are made.",
+    },
+    {
+      icon: "Scale",
+      title: "Fair Investment for Cambridge",
+      description:
+        "Families here should see real value in the regional tax dollars they pay. I will push for Cambridge to get a fair share of regional resources, projects, and attention.",
+    },
+    {
+      icon: "Bus",
+      title: "Transit That Works for Real Life",
+      description:
+        "Getting to work, school, appointments, and home should not be a daily struggle. I will advocate for better regional transit connections that actually serve Cambridge residents.",
     },
     {
       icon: "Home",
-      title: "Housing Affordability",
+      title: "Homes People Can Actually Afford",
       description:
-        "Champion missing-middle housing policies and stronger tenant protections to keep Cambridge accessible for families, seniors, and newcomers.",
+        "Too many people are being squeezed by rising housing costs. I will support more affordable and supportive housing through the Region's role in planning and housing delivery.",
     },
     {
-      icon: "Leaf",
-      title: "Climate & Green Spaces",
+      icon: "Shield",
+      title: "Safer, More Comfortable Streets",
       description:
-        "Protect Cambridge's tree canopy, expand active transportation networks, and hold the Region accountable to its own climate commitments.",
+        "People want to feel safe walking, waiting, and moving around their community. I will work on the regional issues that affect safety, including roads, transit stops, and supports for vulnerable residents.",
     },
     {
-      icon: "DollarSign",
-      title: "Responsible Development",
+      icon: "GraduationCap",
+      title: "Young People Belong Here",
       description:
-        "Ensure new development contributes fairly to infrastructure costs so existing taxpayers aren't saddled with the bill for rapid growth.",
+        "Young adults deserve to feel that Cambridge has a future for them. I will make sure youth voices are part of the conversation on transit, housing, jobs, and community planning.",
     },
     {
-      icon: "Users",
-      title: "Community Safety",
+      icon: "Heart",
+      title: "Seniors Deserve Dignity and Ease",
       description:
-        "Invest in proven social infrastructure — mental health resources, youth programming, and community hubs — as part of a complete safety strategy.",
+        "Seniors should be able to stay active, independent, and connected to the community. I will focus on age-friendly regional services, accessible transit, and practical supports that matter day to day.",
     },
     {
-      icon: "Building2",
-      title: "Regional Accountability",
+      icon: "TreePine",
+      title: "Growth That Protects Cambridge",
       description:
-        "Bring transparency and genuine community input to Regional Council decisions that affect Cambridge residents every single day.",
+        "Cambridge needs growth, but it has to be handled responsibly. I will support planning that respects neighbourhoods, infrastructure limits, and long-term community needs.",
+    },
+    {
+      icon: "Brain",
+      title: "Real Support for Mental Health and Crisis Response",
+      description:
+        "Too many families are dealing with situations that are bigger than a single household can solve. I will back stronger regional support systems for mental health, addictions, and crisis care.",
+    },
+    {
+      icon: "MessageSquare",
+      title: "Clear Answers, Not Confusion",
+      description:
+        "People deserve to know what the Region does and how decisions are made. I will keep residents informed with plain-language updates, regular outreach, and open communication.",
     },
   ],
 
