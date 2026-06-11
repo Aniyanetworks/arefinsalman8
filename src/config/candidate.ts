@@ -10,6 +10,10 @@ export const config = {
     name: "Salman Arefin",
     title: "Regional Councillor — Cambridge",
 
+    // Candidate headshot — drop file in public/ (e.g. public/candidate.jpg) then set path.
+    // Leave empty to show initials placeholder.
+    photo: "",  // e.g. "/candidate.jpg"
+
     // Shown under the name in the hero (keep to one punchy sentence)
     tagline: "Cambridge Deserves Its Fair Share.",
 
@@ -199,9 +203,38 @@ I am committed to being a strong voice for our community, building bridges acros
     ],
   },
 
+  // ── Hero background photo ────────────────────────────────────────────────
+  // Drop a Cambridge city photo in public/ (e.g. public/cambridge-bg.jpg) then set the path.
+  // Leave empty to use the animated gradient background instead.
+  heroBackground: "",  // e.g. "/cambridge-bg.jpg"
+
+  // ── Hero key points ───────────────────────────────────────────────────────
+  // Shown as a checklist in the hero section — keep to 6 or 7 max.
+  keyPoints: [
+    "A stronger voice for Cambridge at the Regional table",
+    "Fair share of regional investment and resources",
+    "Better transit connections that serve real life",
+    "More homes people can actually afford",
+    "Safer, age-friendly communities for all residents",
+    "Responsible growth that respects our neighbourhoods",
+  ],
+
+  // ── Lawn-sign CTA ────────────────────────────────────────────────────────
+  // Use "#get-involved" to scroll to the contact form, or an external URL.
+  lawnSignUrl: "#get-involved",
+
+  // ── Campaign progress stats ───────────────────────────────────────────────
+  // Shown in the animated counter section below the hero.
+  // Update these numbers as the campaign grows.
+  campaignStats: [
+    { value: 1200, suffix: "+", label: "Doors Knocked"             },
+    { value: 850,  suffix: "+", label: "Residents Met"             },
+    { value: 14,   suffix: "",  label: "Neighbourhoods Visited"    },
+  ],
+
   // ── Hero background video ────────────────────────────────────────────────
   // Drop your video in public/ (e.g. public/hero-bg.mp4) then set the path.
-  // Leave empty to use the animated orb background instead.
+  // Leave empty — heroBackground (photo) takes priority; video overrides both.
   heroVideo: "",  // e.g. "/hero-bg.mp4"
 
   // ── Video section ─────────────────────────────────────────────────────────
