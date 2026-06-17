@@ -1,27 +1,22 @@
-import { Nav }            from './components/Nav'
-import { Hero }           from './components/Hero'
-import { CampaignStats }  from './components/CampaignStats'
-import { About }          from './components/About'
-import { Priorities }     from './components/Priorities'
-import { Vision }         from './components/Vision'
-import { VideoSection }   from './components/VideoSection'
-import { Donate }         from './components/Donate'
-import { GetInvolved }    from './components/GetInvolved'
-import { Footer }         from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import { Nav }        from './components/Nav'
+import { Footer }     from './components/Footer'
+import { Home }       from './pages/Home'
+import { ActionPlan } from './pages/ActionPlan'
+import { MyStory }    from './pages/MyStory'
 
 export default function App() {
   return (
     <>
       <Nav />
       <main id="main-content">
-        <Hero />
-        <CampaignStats />
-        <About />
-        <Priorities />
-        <Vision />
-        <VideoSection />
-        <Donate />
-        <GetInvolved />
+        <Routes>
+          <Route path="/"            element={<Home />}       />
+          <Route path="/action-plan" element={<ActionPlan />} />
+          <Route path="/my-story"    element={<MyStory />}    />
+          {/* Fallback */}
+          <Route path="*"            element={<Home />}       />
+        </Routes>
       </main>
       <Footer />
     </>

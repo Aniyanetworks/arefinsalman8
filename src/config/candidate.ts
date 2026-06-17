@@ -14,11 +14,10 @@ export const config = {
     // Leave empty to show initials placeholder.
     photo: "",  // e.g. "/candidate.jpg"
 
-    // Shown under the name in the hero (keep to one punchy sentence)
     tagline: "Cambridge Deserves Its Fair Share.",
 
-    // ── About section ────────────────────────────────────────────────────────
-    // Separate paragraphs with \n\n — the About component renders each as its own <p>.
+    // ── Bio (My Story page) ───────────────────────────────────────────────────
+    // Separate paragraphs with \n\n
     bio: `Community has always been at the heart of everything I do. Whether in business, volunteer work, or community initiatives, I have always believed that real progress happens when people come together around a shared goal.
 
 With a background in business development, branding, and entrepreneurship, I have spent years helping businesses, organizations, and community leaders grow, collaborate, and achieve meaningful results. These experiences have taught me the value of strategic thinking, strong relationships, and leadership that brings people together.
@@ -37,8 +36,7 @@ I am committed to being a strong voice for our community, building bridges acros
       "Committed to strategic leadership and practical, people-first solutions",
     ],
 
-    // ── Career experience timeline ────────────────────────────────────────────
-    // Add / remove / reorder entries freely. period is free-form text.
+    // ── Career experience timeline (My Story page) ────────────────────────────
     careerExperience: [
       {
         role: "Senior Civil Engineer",
@@ -79,96 +77,142 @@ I am committed to being a strong voice for our community, building bridges acros
     region: "Region of Waterloo",
   },
 
-  // ── Platform cards ─────────────────────────────────────────────────────────
+  // ── Rooted in Community section ───────────────────────────────────────────
+  // Update this text with content from WhatsApp as discussed.
+  rootedInCommunity: {
+    headline: "Rooted in Community",
+    description:
+      "Cambridge is not just where I work — it is where I belong. For years I have walked these streets, built relationships across our neighbourhoods, and listened to the concerns that matter most to families here. That deep connection is what drives me to run, and it is what will guide every decision I make at the Region.",
+    pillars: [
+      {
+        icon: "Users",
+        title: "Community Organizer",
+        description:
+          "Bringing residents, faith groups, and community organizations together to solve problems and create opportunity.",
+      },
+      {
+        icon: "Briefcase",
+        title: "Business Builder",
+        description:
+          "Supporting local entrepreneurs and small businesses with the resources, networks, and visibility they need to thrive.",
+      },
+      {
+        icon: "HeartHandshake",
+        title: "Faith & Family",
+        description:
+          "Building bridges across Cambridge's diverse faith communities and advocating for family-centred policies.",
+      },
+      {
+        icon: "Star",
+        title: "Volunteer Leader",
+        description:
+          "Years of hands-on volunteer service — coordinating resources, supporting families, and strengthening networks.",
+      },
+    ],
+  },
+
+  // ── Action Plan (separate page) ───────────────────────────────────────────
   // icon: any name from https://lucide.dev/icons
   priorities: [
     {
       icon: "Megaphone",
+      category: "Advocacy",
       title: "Cambridge Needs a Stronger Voice",
       description:
         "Cambridge should never feel like an afterthought at the Region. I will fight for Cambridge to be heard where decisions on regional services are made.",
     },
     {
       icon: "Scale",
+      category: "Fiscal Fairness",
       title: "Fair Investment for Cambridge",
       description:
         "Families here should see real value in the regional tax dollars they pay. I will push for Cambridge to get a fair share of regional resources, projects, and attention.",
     },
     {
       icon: "Bus",
+      category: "Transit",
       title: "Transit That Works for Real Life",
       description:
         "Getting to work, school, appointments, and home should not be a daily struggle. I will advocate for better regional transit connections that actually serve Cambridge residents.",
     },
     {
       icon: "Home",
+      category: "Housing",
       title: "Homes People Can Actually Afford",
       description:
         "Too many people are being squeezed by rising housing costs. I will support more affordable and supportive housing through the Region's role in planning and housing delivery.",
     },
     {
       icon: "Shield",
+      category: "Safety",
       title: "Safer, More Comfortable Streets",
       description:
         "People want to feel safe walking, waiting, and moving around their community. I will work on the regional issues that affect safety, including roads, transit stops, and supports for vulnerable residents.",
     },
     {
       icon: "GraduationCap",
+      category: "Youth",
       title: "Young People Belong Here",
       description:
         "Young adults deserve to feel that Cambridge has a future for them. I will make sure youth voices are part of the conversation on transit, housing, jobs, and community planning.",
     },
     {
       icon: "Heart",
+      category: "Seniors",
       title: "Seniors Deserve Dignity and Ease",
       description:
         "Seniors should be able to stay active, independent, and connected to the community. I will focus on age-friendly regional services, accessible transit, and practical supports that matter day to day.",
     },
     {
       icon: "TreePine",
+      category: "Growth",
       title: "Growth That Protects Cambridge",
       description:
         "Cambridge needs growth, but it has to be handled responsibly. I will support planning that respects neighbourhoods, infrastructure limits, and long-term community needs.",
     },
     {
       icon: "Brain",
-      title: "Real Support for Mental Health and Crisis Response",
+      category: "Health",
+      title: "Real Support for Mental Health",
       description:
         "Too many families are dealing with situations that are bigger than a single household can solve. I will back stronger regional support systems for mental health, addictions, and crisis care.",
     },
     {
       icon: "MessageSquare",
+      category: "Accountability",
       title: "Clear Answers, Not Confusion",
       description:
         "People deserve to know what the Region does and how decisions are made. I will keep residents informed with plain-language updates, regular outreach, and open communication.",
     },
   ],
 
-  // ── Pull-quote section ────────────────────────────────────────────────────
-  vision: {
-    quote:
-      "Cambridge deserves a regional voice that fights as hard as its residents do — every single day.",
-    attribution: "— Salman Arefin",
+  // ── The Cambridge Listening Tour ─────────────────────────────────────────
+  // Update these numbers as the campaign grows. Start at 0 — they animate up.
+  listeningTour: {
+    description:
+      "Across every corner of Cambridge, we are having real conversations. Here is where the campaign stands — and every number represents a neighbour heard.",
+    items: [
+      { label: "Handshakes",         value: 0 },
+      { label: "Conversations",      value: 0 },
+      { label: "Businesses Visited", value: 0 },
+      { label: "Doors Knocked",      value: 0 },
+    ],
   },
 
   // ── Contact & social ──────────────────────────────────────────────────────
   contact: {
     email: "hello@salmanarefin.ca",
     social: {
-      twitter: "https://twitter.com/",
+      twitter:   "https://twitter.com/",
       instagram: "https://instagram.com/",
-      facebook: "https://facebook.com/",
+      facebook:  "https://facebook.com/",
     },
   },
 
   // ── Donation ─────────────────────────────────────────────────────────────
   donation: {
-    // External URL to your campaign contribution page (e.g. DonorBox, Stripe, etc.)
     url: "https://example.com/donate",
     note: "Contribution limits apply under the Ontario Municipal Elections Act, 1996. Contributions are not tax-deductible.",
-
-    // Ontario Municipal Elections Act — contribution rules displayed on the Donate page.
-    // Update the limit amount if the Province revises it before election day.
     rules: [
       {
         heading: "Contribution limit: $1,200 per candidate",
@@ -203,55 +247,25 @@ I am committed to being a strong voice for our community, building bridges acros
     ],
   },
 
-  // ── Hero background photo ────────────────────────────────────────────────
-  // Drop a Cambridge city photo in public/ (e.g. public/cambridge-bg.jpg) then set the path.
-  // Leave empty to use the animated gradient background instead.
+  // ── Hero background photo ─────────────────────────────────────────────────
+  // Drop a Cambridge city photo in public/ then set the path.
   heroBackground: "",  // e.g. "/cambridge-bg.jpg"
 
-  // ── Hero key points ───────────────────────────────────────────────────────
-  // Shown as a checklist in the hero section — keep to 6 or 7 max.
-  keyPoints: [
-    "A stronger voice for Cambridge at the Regional table",
-    "Fair share of regional investment and resources",
-    "Better transit connections that serve real life",
-    "More homes people can actually afford",
-    "Safer, age-friendly communities for all residents",
-    "Responsible growth that respects our neighbourhoods",
-  ],
-
-  // ── Lawn-sign CTA ────────────────────────────────────────────────────────
-  // Use "#get-involved" to scroll to the contact form, or an external URL.
-  lawnSignUrl: "#get-involved",
-
-  // ── Campaign progress stats ───────────────────────────────────────────────
-  // Shown in the animated counter section below the hero.
-  // Update these numbers as the campaign grows.
-  campaignStats: [
-    { value: 1200, suffix: "+", label: "Doors Knocked"             },
-    { value: 850,  suffix: "+", label: "Residents Met"             },
-    { value: 14,   suffix: "",  label: "Neighbourhoods Visited"    },
-  ],
-
-  // ── Hero background video ────────────────────────────────────────────────
-  // Drop your video in public/ (e.g. public/hero-bg.mp4) then set the path.
-  // Leave empty — heroBackground (photo) takes priority; video overrides both.
+  // ── Hero background video ─────────────────────────────────────────────────
+  // Video overrides heroBackground when both are set.
   heroVideo: "",  // e.g. "/hero-bg.mp4"
 
   // ── Video section ─────────────────────────────────────────────────────────
-  // Set ONE of youtubeUrl, vimeoUrl, or localVideo when your video is ready.
-  // Leave all three empty to show the "coming soon" placeholder.
   videoSection: {
     label: "Campaign Message",
     title: "Why I'm Running",
     description:
       "Hear directly from Salman Arefin about the Cambridge he envisions, the problems he's committed to solving, and why the 2026 Regional Council election matters for every family in this city.",
-    youtubeUrl: "",   // e.g. "https://youtu.be/YOUR_VIDEO_ID"
-    vimeoUrl:   "",   // e.g. "https://vimeo.com/123456789"
-    localVideo: "",   // e.g. "/campaign-video.mp4"
+    youtubeUrl: "",
+    vimeoUrl:   "",
+    localVideo: "",
   },
 
   // ── Form webhook ─────────────────────────────────────────────────────────
-  // Set VITE_FORM_WEBHOOK_URL in your .env file.
-  // Compatible with Make, Zapier, n8n, or any endpoint that accepts JSON POST.
   webhookUrl: import.meta.env.VITE_FORM_WEBHOOK_URL ?? "",
 }
