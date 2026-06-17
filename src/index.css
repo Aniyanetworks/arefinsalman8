@@ -2,24 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Design tokens as CSS custom properties ──────────────────────────────────
+   All hex values live here and in tailwind.config.js.
+   Components reference these via Tailwind utilities or named CSS classes below.
+   Never write raw hex values in component files.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  --color-primary:             #1E3A8A;
+  --color-primary-dark:        #0A1F5C;
+  --color-primary-light:       #2B4FC0;
+  --color-accent-teal:         #3BC4C4;
+  --color-accent-purple:       #6B2FA0;
+  --color-accent-purple-dark:  #4A1E7A;
+  --color-cta:                 #7AC943;
+  --color-text-light:          #FFFFFF;
+  --color-text-muted:          #CBD5E1;
+  --color-surface:             #F0F5FF;
+}
+
+/* ── Global base ─────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply font-body antialiased text-primary-900 bg-warm-50;
+    @apply font-body antialiased text-primary-dark bg-surface;
   }
 
-  /* WCAG 2.1 AA focus indicators */
+  /* WCAG 2.1 AA focus indicators using design token */
   *:focus-visible {
-    outline: 2px solid #E89520;
+    outline: 2px solid var(--color-accent-teal);
     outline-offset: 3px;
     border-radius: 2px;
   }
 }
 
+/* ── Named gradient / glow helper classes ────────────────────────────────────
+   Use these in JSX className props to avoid any inline hex in components.
+   ─────────────────────────────────────────────────────────────────────────── */
 @layer utilities {
+  /* Hero section background — radial navy glow per brand spec */
+  .bg-hero-gradient {
+    background: radial-gradient(
+      ellipse 110% 90% at 50% 50%,
+      var(--color-primary) 0%,
+      var(--color-primary-dark) 75%
+    );
+  }
+
+  /* Ambient glow overlay used inside the video placeholder */
+  .bg-video-glow {
+    background: radial-gradient(
+      ellipse 70% 60% at 50% 50%,
+      color-mix(in srgb, var(--color-accent-teal) 18%, transparent) 0%,
+      transparent 70%
+    );
+  }
+
+  /* CTA button glow shadow */
+  .shadow-cta {
+    box-shadow: 0 4px 24px color-mix(in srgb, var(--color-cta) 35%, transparent);
+  }
+  .hover\:shadow-cta-lg:hover {
+    box-shadow: 0 4px 36px color-mix(in srgb, var(--color-cta) 50%, transparent);
+  }
+
+  /* Photo portrait glow ring */
+  .shadow-photo-glow {
+    box-shadow: 0 0 80px 20px color-mix(in srgb, var(--color-accent-teal) 12%, transparent);
+  }
+
   .text-balance {
     text-wrap: balance;
   }

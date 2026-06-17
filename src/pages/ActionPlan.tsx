@@ -12,18 +12,18 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Megaphone, Scale, Bus, Home, Shield, GraduationCap, Heart, TreePine, Brain, MessageSquare,
 }
 
-// Accent colour per item (cycling through greens and golds)
+// Alternating navy / navy+purple panels for visual rhythm
 const ACCENTS = [
-  'from-primary-700 to-primary-900',
-  'from-primary-800 to-primary-950',
-  'from-primary-700 to-primary-900',
-  'from-primary-800 to-primary-950',
-  'from-primary-700 to-primary-900',
-  'from-primary-800 to-primary-950',
-  'from-primary-700 to-primary-900',
-  'from-primary-800 to-primary-950',
-  'from-primary-700 to-primary-900',
-  'from-primary-800 to-primary-950',
+  'from-primary to-primary-dark',
+  'from-purple-dark to-primary-dark',
+  'from-primary to-primary-dark',
+  'from-purple-dark to-primary-dark',
+  'from-primary to-primary-dark',
+  'from-purple-dark to-primary-dark',
+  'from-primary to-primary-dark',
+  'from-purple-dark to-primary-dark',
+  'from-primary to-primary-dark',
+  'from-purple-dark to-primary-dark',
 ]
 
 function PriorityCard({
@@ -58,8 +58,8 @@ function PriorityCard({
         </span>
 
         {/* Icon */}
-        <div className="w-14 h-14 bg-accent-500/20 rounded-2xl flex items-center justify-center mb-6" aria-hidden="true">
-          {Icon && <Icon size={26} className="text-accent-400" aria-hidden="true" />}
+        <div className="w-14 h-14 bg-teal/20 rounded-2xl flex items-center justify-center mb-6" aria-hidden="true">
+          {Icon && <Icon size={26} className="text-teal" aria-hidden="true" />}
         </div>
 
         {/* Category chip */}
@@ -70,13 +70,13 @@ function PriorityCard({
 
       {/* Content panel */}
       <div className={`bg-white p-10 flex flex-col justify-center ${isEven ? '' : 'lg:[direction:ltr]'}`}>
-        <p className="text-accent-600 text-[11px] font-bold tracking-[0.16em] uppercase mb-3">
+        <p className="text-teal text-[11px] font-bold tracking-[0.16em] uppercase mb-3">
           {num} · {priority.category}
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary-900 leading-[1.18] mb-4">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary-dark leading-[1.18] mb-4">
           {priority.title}
         </h2>
-        <p className="text-primary-600 text-base leading-relaxed">
+        <p className="text-primary/70 text-base leading-relaxed">
           {priority.description}
         </p>
       </div>
@@ -88,10 +88,10 @@ export function ActionPlan() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <div className="min-h-screen bg-warm-50">
+    <div className="min-h-screen bg-surface">
 
       {/* ── Page header ── */}
-      <div className="bg-primary-950 pt-36 pb-24 relative overflow-hidden">
+      <div className="bg-primary-dark pt-36 pb-24 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -113,7 +113,7 @@ export function ActionPlan() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-accent-400 text-xs font-semibold tracking-[0.18em] uppercase mb-4"
+            className="text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-4"
           >
             Platform
           </motion.p>
@@ -147,7 +147,7 @@ export function ActionPlan() {
       </div>
 
       {/* ── CTA footer ── */}
-      <div className="bg-primary-900 py-20">
+      <div className="bg-primary py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-5">
             Ready to build this Cambridge together?
@@ -160,14 +160,14 @@ export function ActionPlan() {
               href={config.donation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-accent-500 hover:bg-accent-400 text-primary-950 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_4px_24px_rgba(212,157,16,0.3)]"
+              className="inline-flex items-center bg-cta hover:bg-cta/90 text-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg"
             >
               Donate Today
             </a>
             <Link
               to="/"
               state={{ scrollTo: 'get-involved' }}
-              className="inline-flex items-center text-white border border-white/25 hover:border-accent-500/50 px-8 py-4 rounded-full font-semibold text-lg transition-all"
+              className="inline-flex items-center text-white border border-white/25 hover:border-teal/50 px-8 py-4 rounded-full font-semibold text-lg transition-all"
             >
               Get Involved
             </Link>

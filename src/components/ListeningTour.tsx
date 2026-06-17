@@ -42,20 +42,17 @@ function TourCard({
       transition={{ duration: 0.55, delay: 0.1 + index * 0.1, ease: 'easeOut' }}
       className="relative group"
     >
-      {/* Card */}
-      <div className="bg-white/[0.05] border border-white/10 group-hover:border-accent-500/30 rounded-2xl p-8 transition-all duration-200">
-        {/* Item label */}
+      <div className="bg-white/[0.05] border border-white/10 group-hover:border-teal/30 rounded-2xl p-8 transition-all duration-200">
         <p className="text-white/50 text-xs font-semibold tracking-[0.14em] uppercase mb-4">
           {item.label}
         </p>
 
-        {/* Number box */}
         <div className="bg-white/[0.06] border border-white/10 rounded-xl py-5 px-6 text-center mb-1">
           {item.value === 0 ? (
             <p className="font-display text-4xl font-bold text-white/20 tabular-nums">—</p>
           ) : (
             <p
-              className="font-display text-4xl font-bold text-accent-400 tabular-nums"
+              className="font-display text-4xl font-bold text-teal tabular-nums"
               aria-live="polite"
               aria-label={`${count} ${item.label}`}
             >
@@ -81,7 +78,7 @@ export function ListeningTour() {
   return (
     <section
       ref={ref}
-      className="py-24 sm:py-32 bg-primary-950"
+      className="py-24 sm:py-32 bg-primary-dark"
       aria-labelledby="tour-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -92,7 +89,7 @@ export function ListeningTour() {
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 text-accent-400 text-xs font-semibold tracking-[0.16em] uppercase mb-4"
+            className="inline-flex items-center gap-2 text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
           >
             <MapPin size={13} aria-hidden="true" />
             Out in the Community
@@ -106,7 +103,7 @@ export function ListeningTour() {
             className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.08] mb-5"
           >
             The Cambridge
-            <span className="block text-accent-400">Listening Tour</span>
+            <span className="block text-teal">Listening Tour</span>
           </motion.h2>
 
           <motion.p
@@ -140,7 +137,7 @@ export function ListeningTour() {
               e.preventDefault()
               document.querySelector('#get-involved')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="text-accent-400 hover:text-accent-300 font-medium underline underline-offset-2 transition-colors"
+            className="text-teal hover:text-teal/80 font-medium underline underline-offset-2 transition-colors"
           >
             Get involved.
           </a>

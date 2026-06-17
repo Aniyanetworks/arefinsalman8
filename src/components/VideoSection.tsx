@@ -40,18 +40,11 @@ function resolveKind(): { kind: VideoKind; src: string } {
 function VideoPlaceholder() {
   return (
     <div
-      className="w-full aspect-video bg-primary-900 rounded-2xl overflow-hidden relative flex items-center justify-center"
+      className="w-full aspect-video bg-primary rounded-2xl overflow-hidden relative flex items-center justify-center"
       aria-label="Video placeholder — campaign video will be placed here"
     >
-      {/* Ambient glow */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(232,149,32,0.18) 0%, transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
+      {/* Ambient teal glow — uses named CSS class from index.css, no hex in component */}
+      <div className="absolute inset-0 opacity-30 bg-video-glow" aria-hidden="true" />
 
       {/* Faint film-strip grid */}
       <div
@@ -67,22 +60,18 @@ function VideoPlaceholder() {
       {/* Pulsing rings around play button */}
       <div className="relative flex items-center justify-center" aria-hidden="true">
         <motion.div
-          className="absolute w-32 h-32 rounded-full border border-accent-500/20"
+          className="absolute w-32 h-32 rounded-full border border-teal/20"
           animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeOut' }}
         />
         <motion.div
-          className="absolute w-32 h-32 rounded-full border border-accent-500/15"
+          className="absolute w-32 h-32 rounded-full border border-teal/15"
           animate={{ scale: [1, 1.9, 1], opacity: [0.3, 0, 0.3] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeOut', delay: 0.6 }}
         />
         {/* Play button */}
-        <div className="relative w-20 h-20 bg-accent-500/20 hover:bg-accent-500/30 border border-accent-500/40 rounded-full flex items-center justify-center transition-colors">
-          <Play
-            size={28}
-            className="text-accent-400 ml-1"
-            fill="currentColor"
-          />
+        <div className="relative w-20 h-20 bg-teal/20 hover:bg-teal/30 border border-teal/40 rounded-full flex items-center justify-center transition-colors">
+          <Play size={28} className="text-teal ml-1" fill="currentColor" />
         </div>
       </div>
 
@@ -121,7 +110,7 @@ export function VideoSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-accent-600 text-xs font-semibold tracking-[0.16em] uppercase mb-4"
+            className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
           >
             {config.videoSection.label}
           </motion.span>
@@ -131,7 +120,7 @@ export function VideoSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="font-display text-4xl sm:text-5xl font-bold text-primary-900 leading-[1.08] text-balance"
+            className="font-display text-4xl sm:text-5xl font-bold text-primary-dark leading-[1.08] text-balance"
           >
             {config.videoSection.title}
           </motion.h2>
@@ -140,7 +129,7 @@ export function VideoSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-primary-600 text-lg mt-5 max-w-2xl mx-auto leading-relaxed"
+            className="text-primary/70 text-lg mt-5 max-w-2xl mx-auto leading-relaxed"
           >
             {config.videoSection.description}
           </motion.p>
@@ -151,7 +140,7 @@ export function VideoSection() {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.24, ease: 'easeOut' }}
-          className="shadow-[0_24px_80px_rgba(8,29,52,0.14)] rounded-2xl overflow-hidden"
+          className="shadow-[0_24px_80px_rgba(10,31,92,0.14)] rounded-2xl overflow-hidden"
         >
           {kind === 'youtube' || kind === 'vimeo' ? (
             <div className="aspect-video">
@@ -166,7 +155,7 @@ export function VideoSection() {
           ) : kind === 'local' ? (
             <video
               controls
-              className="w-full aspect-video bg-primary-900"
+              className="w-full aspect-video bg-primary"
               aria-label={config.videoSection.title}
             >
               <source src={src} type="video/mp4" />

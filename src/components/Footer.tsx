@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer
-      className="bg-primary-950 border-t border-white/[0.07]"
+      className="bg-primary-dark border-t border-white/[0.07]"
       role="contentinfo"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -22,14 +22,14 @@ export function Footer() {
           <div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.12em] mb-3">Pages</p>
             <ul className="space-y-1.5">
-              <li><Link to="/"            className="text-white/55 hover:text-accent-400 text-sm transition-colors">Home</Link></li>
-              <li><Link to="/my-story"    className="text-white/55 hover:text-accent-400 text-sm transition-colors">My Story</Link></li>
-              <li><Link to="/action-plan" className="text-white/55 hover:text-accent-400 text-sm transition-colors">Action Plan</Link></li>
+              <li><Link to="/"            className="text-white/55 hover:text-teal text-sm transition-colors">Home</Link></li>
+              <li><Link to="/my-story"    className="text-white/55 hover:text-teal text-sm transition-colors">My Story</Link></li>
+              <li><Link to="/action-plan" className="text-white/55 hover:text-teal text-sm transition-colors">Action Plan</Link></li>
             </ul>
           </div>
           <div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.12em] mb-3">Contact</p>
-            <a href={"mailto:" + config.contact.email} className="text-accent-400 hover:text-accent-300 text-sm transition-colors block mb-2">
+            <a href={"mailto:" + config.contact.email} className="text-teal hover:text-teal/80 text-sm transition-colors block mb-2">
               {config.contact.email}
             </a>
             <p className="text-white/30 text-xs mt-3">{config.election.date}</p>
@@ -49,7 +49,7 @@ export function Footer() {
           <p className="text-white/20 text-xs text-center tracking-wide">
             Designed &amp; Developed by{' '}
             <a href="https://aniyanetworks.net/" target="_blank" rel="noopener noreferrer"
-               className="text-white/35 font-medium hover:text-accent-400 transition-colors"
+               className="text-white/35 font-medium hover:text-teal transition-colors"
                aria-label="Aniya Network Solutions Inc. (opens in a new tab)">
               Aniya Network Solutions Inc.
             </a>

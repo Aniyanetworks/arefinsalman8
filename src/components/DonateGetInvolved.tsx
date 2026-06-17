@@ -41,7 +41,7 @@ export function DonateGetInvolved() {
   }
 
   const inputCls =
-    'w-full bg-white/10 border border-white/15 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/25 focus:outline-none rounded-lg px-4 py-3 text-white placeholder-white/30 transition-colors text-sm'
+    'w-full bg-white/10 border border-white/15 focus:border-teal focus:ring-2 focus:ring-teal/25 focus:outline-none rounded-lg px-4 py-3 text-white placeholder-white/30 transition-colors text-sm'
 
   return (
     <section
@@ -50,13 +50,13 @@ export function DonateGetInvolved() {
       className="relative overflow-hidden"
       aria-labelledby="action-heading"
     >
-      {/* Decorative diagonal split background */}
+      {/* Diagonal split background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-0 lg:w-1/2 bg-primary-900" />
-        <div className="absolute inset-0 lg:left-1/2 bg-primary-950" />
+        <div className="absolute inset-0 lg:w-1/2 bg-primary" />
+        <div className="absolute inset-0 lg:left-1/2 bg-primary-dark" />
         {/* Diagonal divider on desktop */}
         <div
-          className="hidden lg:block absolute top-0 bottom-0 left-[calc(50%-60px)] w-32 bg-primary-950"
+          className="hidden lg:block absolute top-0 bottom-0 left-[calc(50%-60px)] w-32 bg-primary-dark"
           style={{ clipPath: 'polygon(60px 0, 100% 0, 100% 100%, 0 100%)' }}
         />
       </div>
@@ -71,7 +71,7 @@ export function DonateGetInvolved() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-              <span className="inline-flex items-center gap-2 text-accent-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+              <span className="inline-flex items-center gap-2 text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-6">
                 <Heart size={12} aria-hidden="true" />
                 Support the Campaign
               </span>
@@ -81,7 +81,7 @@ export function DonateGetInvolved() {
                 className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.06] mb-5"
               >
                 Make a<br />
-                <span className="text-accent-400">Real Difference.</span>
+                <span className="text-teal">Real Difference.</span>
               </h2>
 
               <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-md">
@@ -94,7 +94,7 @@ export function DonateGetInvolved() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Donate to the campaign (opens in a new tab)"
-                className="group inline-flex items-center gap-3 bg-accent-500 hover:bg-accent-400 active:bg-accent-600 text-primary-950 px-10 py-5 rounded-full font-bold text-xl transition-all shadow-[0_4px_32px_rgba(212,157,16,0.3)] hover:shadow-[0_4px_48px_rgba(212,157,16,0.45)] mb-6 self-start"
+                className="group inline-flex items-center gap-3 bg-cta hover:bg-cta/90 text-primary-dark px-10 py-5 rounded-full font-bold text-xl transition-all shadow-cta hover:shadow-cta-lg mb-6 self-start"
               >
                 <Heart size={20} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                 Donate Today
@@ -119,7 +119,7 @@ export function DonateGetInvolved() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${label} (opens in a new tab)`}
-                    className="w-9 h-9 bg-white/[0.08] hover:bg-accent-500/20 rounded-lg flex items-center justify-center text-white/50 hover:text-accent-400 transition-colors"
+                    className="w-9 h-9 bg-white/[0.08] hover:bg-teal/20 rounded-lg flex items-center justify-center text-white/50 hover:text-teal transition-colors"
                   >
                     <Icon size={16} aria-hidden="true" />
                   </a>
@@ -135,13 +135,13 @@ export function DonateGetInvolved() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.12, ease: 'easeOut' }}
             >
-              <span className="inline-block text-accent-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+              <span className="inline-block text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-6">
                 Join the Movement
               </span>
 
               <h2 className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.06] mb-5">
                 Get<br />
-                <span className="text-accent-400">Involved.</span>
+                <span className="text-teal">Involved.</span>
               </h2>
 
               <p className="text-white/60 text-lg leading-relaxed mb-8">
@@ -151,16 +151,16 @@ export function DonateGetInvolved() {
               {status === 'success' ? (
                 <div className="text-center py-10" role="alert" aria-live="polite">
                   <div
-                    className="w-14 h-14 bg-primary-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-14 h-14 bg-teal/20 rounded-full flex items-center justify-center mx-auto mb-4"
                     aria-hidden="true"
                   >
-                    <span className="text-primary-300 text-2xl font-bold">✓</span>
+                    <span className="text-teal text-2xl font-bold">✓</span>
                   </div>
                   <p className="text-white font-semibold text-xl mb-2">Message received!</p>
                   <p className="text-white/55 mb-6">We'll be in touch soon.</p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="text-accent-400 hover:text-accent-300 text-sm underline underline-offset-2 transition-colors"
+                    className="text-teal hover:text-teal/80 text-sm underline underline-offset-2 transition-colors"
                   >
                     Send another message
                   </button>
@@ -214,7 +214,7 @@ export function DonateGetInvolved() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 disabled:bg-primary-800 disabled:cursor-not-allowed text-white py-4 rounded-full font-bold text-base transition-colors"
+                    className="w-full flex items-center justify-center gap-2 bg-primary-light hover:bg-primary disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 rounded-full font-bold text-base transition-colors"
                   >
                     {status === 'submitting' ? (
                       <><Loader2 size={17} className="animate-spin" aria-hidden="true" /> Sending…</>

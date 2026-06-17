@@ -3,38 +3,36 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      // ── Design tokens ──────────────────────────────────────────────────────
+      // All hex values live here and in the :root CSS variables in index.css.
+      // Components MUST use these utility classes — never hardcode hex values.
       colors: {
-        // Primary: Deep Forest Green
+        // Navy blue family (~60 % of UI)
         primary: {
-          50:  '#eef7f2',
-          100: '#d2edde',
-          200: '#a4d9bd',
-          300: '#6dc49b',
-          400: '#40ab7a',
-          500: '#258c5d',
-          600: '#1a7049',
-          700: '#145939',
-          800: '#0f432b',
-          900: '#092d1d',
-          950: '#051912',
+          DEFAULT: '#1E3A8A', // main brand blue — primary section backgrounds
+          dark:    '#0A1F5C', // deepest navy — footers, depth layers
+          light:   '#2B4FC0', // lighter blue — hover states, glows
         },
-        // Accent: Warm Gold
-        accent: {
-          300: '#fde08c',
-          400: '#f5c535',
-          500: '#d49d10',
-          600: '#a97c0c',
-          700: '#876109',
-          800: '#6a4c07',
-          900: '#4a3505',
+
+        // Accent teal (~15 % — banners, highlights, secondary buttons, icon accents)
+        teal: '#3BC4C4',
+
+        // Accent purple (~15 % — ribbons, section dividers, layering)
+        purple: {
+          DEFAULT: '#6B2FA0',
+          dark:    '#4A1E7A',
         },
-        // Warm cream backgrounds
-        warm: {
-          50:  '#f6f9f4',
-          100: '#edf3e8',
-          200: '#d8e9cb',
-        },
+
+        // CTA green (~10 % — PRIMARY CALL-TO-ACTION BUTTONS ONLY, never decorative)
+        cta: '#7AC943',
+
+        // Text helpers
+        muted: '#CBD5E1', // body text on dark backgrounds
+
+        // Light section background (very subtle blue-white tint)
+        surface: '#F0F5FF',
       },
+
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         body:    ['Inter', 'system-ui', 'sans-serif'],

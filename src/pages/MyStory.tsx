@@ -17,19 +17,19 @@ function CareerSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <div ref={ref} className="bg-white border-t border-warm-200 py-20 sm:py-24">
+    <div ref={ref} className="bg-white border-t border-primary/10 py-20 sm:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           {...(inView ? fadeUp(0) : { initial: { opacity: 0 } })}
-          className="inline-flex items-center gap-2 text-accent-600 text-xs font-semibold tracking-[0.16em] uppercase mb-4"
+          className="inline-flex items-center gap-2 text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
         >
           <Briefcase size={13} aria-hidden="true" />
-          Career & Experience
+          Career &amp; Experience
         </motion.div>
 
         <motion.h2
           {...(inView ? fadeUp(0.08) : { initial: { opacity: 0 } })}
-          className="font-display text-4xl sm:text-5xl font-bold text-primary-900 leading-[1.08] mb-14"
+          className="font-display text-4xl sm:text-5xl font-bold text-primary-dark leading-[1.08] mb-14"
         >
           Built for this work.
         </motion.h2>
@@ -40,7 +40,7 @@ function CareerSection() {
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-accent-500 via-accent-500/40 to-transparent origin-top"
+            className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-teal via-teal/40 to-transparent origin-top"
             aria-hidden="true"
           />
           {config.candidate.careerExperience.map((entry, i) => (
@@ -50,15 +50,15 @@ function CareerSection() {
               className="relative pl-10 pb-12 last:pb-0"
             >
               <span
-                className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-white shadow"
+                className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-teal ring-4 ring-white shadow"
                 aria-hidden="true"
               />
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-                <h3 className="font-display text-xl font-bold text-primary-900">{entry.role}</h3>
-                <span className="text-accent-600 text-sm font-semibold whitespace-nowrap">{entry.period}</span>
+                <h3 className="font-display text-xl font-bold text-primary-dark">{entry.role}</h3>
+                <span className="text-teal text-sm font-semibold whitespace-nowrap">{entry.period}</span>
               </div>
-              <p className="text-primary-500 text-sm font-semibold uppercase tracking-wide mb-2">{entry.organization}</p>
-              <p className="text-primary-700 leading-relaxed">{entry.description}</p>
+              <p className="text-primary/60 text-sm font-semibold uppercase tracking-wide mb-2">{entry.organization}</p>
+              <p className="text-primary/80 leading-relaxed">{entry.description}</p>
             </motion.li>
           ))}
         </ol>
@@ -77,7 +77,7 @@ export function MyStory() {
     <div className="min-h-screen">
 
       {/* ── Page header ── */}
-      <div className="bg-primary-950 pt-36 pb-20 relative overflow-hidden">
+      <div className="bg-primary-dark pt-36 pb-20 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -102,7 +102,7 @@ export function MyStory() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="text-accent-400 text-xs font-semibold tracking-[0.18em] uppercase mb-4"
+                className="text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-4"
               >
                 Who I Am
               </motion.p>
@@ -132,11 +132,11 @@ export function MyStory() {
               transition={{ duration: 0.65, delay: 0.2, ease: 'easeOut' }}
               className="hidden lg:flex justify-end"
             >
-              <div className="w-64 aspect-square rounded-3xl overflow-hidden ring-2 ring-accent-500/30">
+              <div className="w-64 aspect-square rounded-3xl overflow-hidden ring-2 ring-teal/30">
                 {hasPhoto ? (
                   <img src={config.candidate.photo} alt={config.candidate.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-primary-700 to-primary-950 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
                     <span className="font-display text-7xl font-bold text-white/15 select-none" aria-hidden="true">{initials}</span>
                   </div>
                 )}
@@ -147,7 +147,7 @@ export function MyStory() {
       </div>
 
       {/* ── Bio section ── */}
-      <div className="bg-warm-50 py-20 sm:py-24">
+      <div className="bg-surface py-20 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
 
@@ -155,28 +155,28 @@ export function MyStory() {
             <div>
               <motion.span
                 {...fadeUp(0)}
-                className="inline-block text-accent-600 text-xs font-semibold tracking-[0.16em] uppercase mb-5"
+                className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-5"
               >
                 About {config.candidate.name.split(' ')[0]}
               </motion.span>
               <motion.h2
                 {...fadeUp(0.08)}
-                className="font-display text-4xl sm:text-[2.75rem] font-bold text-primary-900 leading-[1.08] mb-8 text-balance"
+                className="font-display text-4xl sm:text-[2.75rem] font-bold text-primary-dark leading-[1.08] mb-8 text-balance"
               >
                 A community builder.{' '}
-                <span className="text-accent-600">A committed advocate.</span>
+                <span className="text-teal">A committed advocate.</span>
               </motion.h2>
               <motion.div {...fadeUp(0.16)} className="space-y-4">
                 {config.candidate.bio.split('\n\n').map((para, i) => (
-                  <p key={i} className="text-primary-700 text-lg leading-relaxed">{para}</p>
+                  <p key={i} className="text-primary/80 text-lg leading-relaxed">{para}</p>
                 ))}
               </motion.div>
 
               <motion.blockquote
                 {...fadeUp(0.28)}
-                className="border-l-[3px] border-accent-500 pl-6 mt-10"
+                className="border-l-[3px] border-teal pl-6 mt-10"
               >
-                <p className="font-display text-xl text-primary-800 italic leading-relaxed">
+                <p className="font-display text-xl text-primary italic leading-relaxed">
                   {config.candidate.whyRunning}
                 </p>
               </motion.blockquote>
@@ -184,12 +184,12 @@ export function MyStory() {
 
             {/* Highlights card */}
             <motion.div {...fadeUp(0.12)}>
-              <div className="bg-primary-900 rounded-2xl p-8 text-white sticky top-24">
+              <div className="bg-primary rounded-2xl p-8 text-white sticky top-24">
                 <h3 className="font-display text-2xl font-bold mb-6">Highlights</h3>
                 <ul className="space-y-4" role="list">
                   {config.candidate.highlights.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 size={19} className="text-accent-400 mt-0.5 shrink-0" aria-hidden="true" />
+                      <CheckCircle2 size={19} className="text-teal mt-0.5 shrink-0" aria-hidden="true" />
                       <span className="text-white/80 leading-snug text-[15px]">{item}</span>
                     </li>
                   ))}
@@ -205,7 +205,7 @@ export function MyStory() {
       <CareerSection />
 
       {/* ── CTA footer ── */}
-      <div className="bg-primary-900 py-20">
+      <div className="bg-primary py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-5">
             Ready to work together?
@@ -213,14 +213,14 @@ export function MyStory() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/action-plan"
-              className="inline-flex items-center bg-accent-500 hover:bg-accent-400 text-primary-950 px-8 py-4 rounded-full font-bold text-lg transition-all"
+              className="inline-flex items-center bg-cta hover:bg-cta/90 text-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg"
             >
               See My Action Plan
             </Link>
             <Link
               to="/"
               state={{ scrollTo: 'get-involved' }}
-              className="inline-flex items-center text-white border border-white/25 hover:border-accent-500/50 px-8 py-4 rounded-full font-semibold text-lg transition-all"
+              className="inline-flex items-center text-white border border-white/25 hover:border-teal/50 px-8 py-4 rounded-full font-semibold text-lg transition-all"
             >
               Get Involved
             </Link>

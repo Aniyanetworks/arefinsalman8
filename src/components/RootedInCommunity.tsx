@@ -28,7 +28,7 @@ export function RootedInCommunity() {
   return (
     <section
       ref={ref}
-      className="py-24 sm:py-32 bg-warm-50"
+      className="py-24 sm:py-32 bg-surface"
       aria-labelledby="rooted-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -37,7 +37,7 @@ export function RootedInCommunity() {
         <div className="max-w-2xl mb-16">
           <motion.span
             {...(inView ? fadeUp(0) : { initial: { opacity: 0 } })}
-            className="inline-block text-accent-600 text-xs font-semibold tracking-[0.16em] uppercase mb-4"
+            className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
           >
             About Salman
           </motion.span>
@@ -45,14 +45,14 @@ export function RootedInCommunity() {
           <motion.h2
             id="rooted-heading"
             {...(inView ? fadeUp(0.08) : { initial: { opacity: 0 } })}
-            className="font-display text-4xl sm:text-5xl font-bold text-primary-900 leading-[1.08] mb-6 text-balance"
+            className="font-display text-4xl sm:text-5xl font-bold text-primary-dark leading-[1.08] mb-6 text-balance"
           >
             {section.headline}
           </motion.h2>
 
           <motion.p
             {...(inView ? fadeUp(0.16) : { initial: { opacity: 0 } })}
-            className="text-primary-700 text-lg leading-relaxed"
+            className="text-primary/80 text-lg leading-relaxed"
           >
             {section.description}
           </motion.p>
@@ -66,18 +66,18 @@ export function RootedInCommunity() {
               <motion.div
                 key={i}
                 {...(inView ? fadeUp(0.1 + i * 0.1) : { initial: { opacity: 0 } })}
-                className="group bg-white border border-warm-200 hover:border-primary-300 rounded-2xl p-7 transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                className="group bg-white border border-primary/10 hover:border-teal/30 rounded-2xl p-7 transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
               >
                 <div
-                  className="w-12 h-12 bg-primary-900 group-hover:bg-primary-800 rounded-xl flex items-center justify-center mb-5 transition-colors"
+                  className="w-12 h-12 bg-primary group-hover:bg-primary-light rounded-xl flex items-center justify-center mb-5 transition-colors"
                   aria-hidden="true"
                 >
-                  {Icon && <Icon size={22} className="text-accent-400" aria-hidden="true" />}
+                  {Icon && <Icon size={22} className="text-teal" aria-hidden="true" />}
                 </div>
-                <h3 className="font-display text-lg font-bold text-primary-900 mb-2 leading-snug">
+                <h3 className="font-display text-lg font-bold text-primary-dark mb-2 leading-snug">
                   {pillar.title}
                 </h3>
-                <p className="text-primary-600 text-sm leading-relaxed">
+                <p className="text-primary/70 text-sm leading-relaxed">
                   {pillar.description}
                 </p>
               </motion.div>

@@ -22,7 +22,6 @@ export function Nav() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
   const scrollToSection = (id: string) => {
@@ -47,7 +46,7 @@ export function Nav() {
       className={[
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-primary-950/96 backdrop-blur-md shadow-xl py-3'
+          ? 'bg-primary-dark/96 backdrop-blur-md shadow-xl py-3'
           : 'bg-transparent py-5',
       ].join(' ')}
     >
@@ -65,15 +64,15 @@ export function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7" role="list">
-          <Link to="/my-story"   className={linkCls} role="listitem">My Story</Link>
+          <Link to="/my-story"    className={linkCls} role="listitem">My Story</Link>
           <Link to="/action-plan" className={linkCls} role="listitem">Action Plan</Link>
-          <button onClick={() => scrollToSection('#video')}       className={linkCls}>Watch</button>
+          <button onClick={() => scrollToSection('#video')}        className={linkCls}>Watch</button>
           <button onClick={() => scrollToSection('#get-involved')} className={linkCls}>Contact</button>
           <a
             href={config.donation.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-accent-500 hover:bg-accent-400 active:bg-accent-600 text-primary-950 px-5 py-2 rounded-full text-sm font-bold transition-colors shadow-sm"
+            className="bg-cta hover:bg-cta/90 text-primary-dark px-5 py-2 rounded-full text-sm font-bold transition-all shadow-cta hover:shadow-cta-lg"
           >
             Donate
           </a>
@@ -102,7 +101,7 @@ export function Nav() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0,  height: 0 }}
             transition={{ duration: 0.22 }}
-            className="md:hidden overflow-hidden bg-primary-950 border-t border-white/10"
+            className="md:hidden overflow-hidden bg-primary-dark border-t border-white/10"
           >
             <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col">
               <Link
@@ -138,7 +137,7 @@ export function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 role="menuitem"
-                className="mt-4 mb-2 bg-accent-500 hover:bg-accent-400 text-primary-950 py-3 rounded-full font-bold transition-colors text-center"
+                className="mt-4 mb-2 bg-cta hover:bg-cta/90 text-primary-dark py-3 rounded-full font-bold transition-all text-center shadow-cta"
               >
                 Donate Today
               </a>

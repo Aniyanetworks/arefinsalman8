@@ -12,7 +12,7 @@ export function CandidateQuote() {
   return (
     <section
       ref={ref}
-      className="py-24 sm:py-32 bg-primary-900 overflow-hidden"
+      className="py-24 sm:py-32 bg-primary overflow-hidden"
       aria-label="Candidate statement"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -26,13 +26,13 @@ export function CandidateQuote() {
             className="flex justify-center lg:justify-start"
           >
             <div className="relative">
-              {/* Decorative ring */}
+              {/* Decorative rings */}
               <div
-                className="absolute -inset-4 rounded-[2rem] border-2 border-accent-500/20"
+                className="absolute -inset-4 rounded-[2rem] border-2 border-teal/20"
                 aria-hidden="true"
               />
               <div
-                className="absolute -inset-8 rounded-[2.5rem] border border-accent-500/10"
+                className="absolute -inset-8 rounded-[2.5rem] border border-teal/10"
                 aria-hidden="true"
               />
 
@@ -48,7 +48,7 @@ export function CandidateQuote() {
                   />
                 ) : (
                   <>
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-700 to-primary-950" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="font-display text-8xl font-bold text-white/10 select-none" aria-hidden="true">
                         {initials}
@@ -67,7 +67,7 @@ export function CandidateQuote() {
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 0.12, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="font-display text-[8rem] text-accent-400 leading-none select-none -mb-10"
+              className="font-display text-[8rem] text-teal leading-none select-none -mb-10"
               aria-hidden="true"
             >
               "
@@ -83,7 +83,7 @@ export function CandidateQuote() {
               </p>
 
               <footer className="not-italic">
-                <p className="text-accent-400 font-bold text-lg">{config.candidate.name}</p>
+                <p className="text-teal font-bold text-lg">{config.candidate.name}</p>
                 <p className="text-white/45 text-sm mt-0.5">
                   Candidate for {config.election.position}, {config.election.municipality}
                 </p>
@@ -95,7 +95,7 @@ export function CandidateQuote() {
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="w-16 h-1 bg-accent-500 mt-8 rounded-full origin-left"
+              className="w-16 h-1 bg-teal mt-8 rounded-full origin-left"
               aria-hidden="true"
             />
           </div>
