@@ -3,7 +3,7 @@
 // All candidate details, content, and links live here.
 // Edit this file freely — you never need to touch the components.
 // ─────────────────────────────────────────────────────────────────────────────
-
+import image from "../assets/Facebook-Cover-Photo-Opt.jpg"
 export const config = {
   candidate: {
     // ── Identity ─────────────────────────────────────────────────────────────
@@ -12,7 +12,7 @@ export const config = {
 
     // Candidate headshot — drop file in public/ (e.g. public/candidate.jpg) then set path.
     // Leave empty to show initials placeholder.
-    photo: "",  // e.g. "/candidate.jpg"
+    photo: `${image}`,  // e.g. "/candidate.jpg"
 
     tagline: "Cambridge Deserves Its Fair Share.",
 

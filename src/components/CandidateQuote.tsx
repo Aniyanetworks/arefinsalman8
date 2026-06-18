@@ -37,7 +37,7 @@ export function CandidateQuote() {
               />
 
               <div
-                className="relative w-72 xl:w-80 aspect-[4/5] rounded-3xl overflow-hidden ring-1 ring-white/10"
+                className="relative w-full xl:w-80  rounded-3xl overflow-hidden ring-1 ring-white/10"
                 aria-label={hasPhoto ? `Portrait of ${config.candidate.name}` : 'Candidate photo'}
               >
                 {hasPhoto ? (
