@@ -10,14 +10,14 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero"
-      className="bg-primary-dark flex flex-col pt-20 pb-10 px-4 sm:px-8 lg:px-14 gap-6"
+      className="bg-primary-dark flex flex-col pt-20 pb-10 gap-6"
     >
       {/* ── Image card — natural height, no cropping ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
+        className="relative overflow-hidden w-full"
       >
         {hasVideo ? (
           <video autoPlay muted loop playsInline className="w-full h-auto block">
