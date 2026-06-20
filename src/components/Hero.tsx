@@ -5,144 +5,72 @@ export function Hero() {
   const hasVideo      = Boolean(config.heroVideo)
   const hasBackground = Boolean(config.heroBackground)
   const hasPhoto      = Boolean(config.candidate.photo)
-  const initials      = config.candidate.name.split(' ').map(n => n[0]).join('')
 
   return (
     <section
       id="hero"
       aria-label="Hero"
-      className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-center overflow-hidden"
+      className="bg-primary-dark flex flex-col pt-20 pb-10 px-4 sm:px-8 lg:px-14 gap-6"
     >
-      {/* ── Background ── */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      {/* ── Image card — natural height, no cropping ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="relative rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
+      >
         {hasVideo ? (
-          <>
-            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src={config.heroVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-primary-dark/75" />
-          </>
+          <video autoPlay muted loop playsInline className="w-full h-auto block">
+            <source src={config.heroVideo} type="video/mp4" />
+          </video>
+        ) : hasPhoto ? (
+          <img
+            src={config.candidate.photo}
+            alt={config.candidate.name}
+            className="w-full h-auto block"
+          />
         ) : hasBackground ? (
-          <>
-            <img src={config.heroBackground} alt="" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/80 to-primary/50" />
-          </>
+          <img src={config.heroBackground} alt="" className="w-full h-auto block" />
         ) : (
-          /* Radial navy gradient per brand spec — class defined in index.css */
-          <div className="absolute inset-0 bg-hero-gradient" />
+          <div className="w-full aspect-[21/9] bg-hero-gradient" />
         )}
 
-        {/* Subtle dot texture */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
-            backgroundSize: '36px 36px',
-          }}
-        />
-        {/* Bottom fade to next section */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary-dark to-transparent" />
-      </div>
+        {/* Name overlay — bottom-left */}
+        <div className="absolute inset-x-0 bottom-0 px-6 py-5 bg-gradient-to-t from-primary-dark/80 via-primary-dark/30 to-transparent">
+          <p className="font-display text-base font-bold text-white leading-tight">
+            {config.candidate.name}
+          </p>
+          <p className="text-teal text-xs mt-0.5 font-medium">
+            {config.election.position} · {config.election.voteYear}
+          </p>
+        </div>
+      </motion.div>
 
-      {/* ── Content ── */}
-      <div className="relative   mx-auto  lg:pt-20 lg:pb-24   items-center justify-center ">
-          {/* LEFT — identity + tagline + CTAs */}
-          <div>
-            {/* RIGHT — candidate photo */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.75, delay: 0.35, ease: 'easeOut' }}
-              className="flex justify-center lg:justify-end mt-2 lg:mt-0 "
-            >
-              <div className="relative">
-                {/* Teal glow ring — class in index.css, no hex in component */}
-                <div className="absolute inset-0 rounded-3xl shadow-photo-glow" aria-hidden="true" />
-
-                <div
-                  className="relative w-full h-full  rounded-3xl overflow-hidden ring-1 ring-white/10"
-                  aria-label={hasPhoto ? `Portrait of ${config.candidate.name}` : 'Candidate photo placeholder'}
-                >
-                  {hasPhoto ? (
-                    <img
-                      src={config.candidate.photo}
-                      alt={config.candidate.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                        <span className="font-display text-8xl font-bold text-white/10 select-none" aria-hidden="true">
-                          {initials}
-                        </span>
-                        <span className="text-muted/30 text-xs tracking-widest uppercase font-medium">
-                          Photo coming soon
-                        </span>
-                      </div>
-                      {/* Corner accents */}
-                      <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-teal/30 rounded-tl-lg" aria-hidden="true" />
-                      <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-teal/30 rounded-tr-lg" aria-hidden="true" />
-                      <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-teal/30 rounded-bl-lg" aria-hidden="true" />
-                      <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-teal/30 rounded-br-lg" aria-hidden="true" />
-                    </>
-                  )}
-
-                  {/* Name overlay */}
-                  <div className="absolute inset-x-0 bottom-0 px-6 py-5 bg-gradient-to-t from-primary-dark/90 via-primary-dark/50 to-transparent">
-                    <p className="font-display text-base font-bold text-white">{config.candidate.name}</p>
-                    <p className="text-teal text-xs mt-0.5">{config.election.position} · {config.election.voteYear}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.68 }}
-              className="flex flex-wrap gap-4 mt-4  items-center justify-center"
-            >
-              {/* Primary CTA — green reserved for conversion actions only */}
-              <a
-                href={config.donation.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-cta hover:bg-cta/90 text-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg"
-              >
-                Donate Today
-              </a>
-              <a
-                href="#get-involved"
-                onClick={e => {
-                  e.preventDefault()
-                  document.querySelector('#get-involved')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="inline-flex items-center gap-2 text-white border border-white/25 hover:border-teal/50 hover:bg-white/[0.06] px-8 py-4 rounded-full font-semibold text-lg transition-all"
-              >
-                Get Involved
-              </a>
-            </motion.div>
-          </div>
-      </div>
-
-      {/* Scroll indicator */}
+      {/* ── Buttons — sit directly below the card ── */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        aria-hidden="true"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
       >
-        <motion.div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-1.5">
-          <motion.span
-            className="w-1.5 h-1.5 bg-white/50 rounded-full"
-            animate={{ y: [0, 14, 0], opacity: [0.5, 0.9, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
-        <span className="text-muted/40 text-[10px] tracking-widest uppercase font-medium">Scroll</span>
+        <a
+          href={config.donation.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center bg-cta hover:bg-cta/90 text-primary-dark px-10 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg w-full sm:w-auto"
+        >
+          Donate Today
+        </a>
+        <a
+          href="#get-involved"
+          onClick={e => {
+            e.preventDefault()
+            document.querySelector('#get-involved')?.scrollIntoView({ behavior: 'smooth' })
+          }}
+          className="inline-flex items-center justify-center text-white border border-white/30 hover:border-teal/60 hover:bg-white/[0.08] px-10 py-4 rounded-full font-semibold text-lg transition-all w-full sm:w-auto"
+        >
+          Get Involved
+        </a>
       </motion.div>
     </section>
   )

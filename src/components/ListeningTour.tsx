@@ -74,6 +74,8 @@ export function ListeningTour() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   const tour = config.listeningTour
+  const hasData = tour.items.some(item => item.value > 0)
+  if (!hasData) return null
 
   return (
     <section

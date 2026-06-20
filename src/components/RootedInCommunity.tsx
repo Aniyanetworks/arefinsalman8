@@ -28,7 +28,7 @@ export function RootedInCommunity() {
   return (
     <section
       ref={ref}
-      className="py-24 sm:py-32 bg-surface"
+      className="py-14 sm:py-20 bg-surface"
       aria-labelledby="rooted-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -59,7 +59,7 @@ export function RootedInCommunity() {
         </div>
 
         {/* Pillars grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {section.pillars.map((pillar, i) => {
             const Icon = ICON_MAP[pillar.icon]
             return (

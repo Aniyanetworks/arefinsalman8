@@ -95,6 +95,8 @@ export function VideoSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const { kind, src } = resolveKind()
 
+  if (kind === 'none') return null
+
   return (
     <section
       id="video"

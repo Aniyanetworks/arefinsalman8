@@ -12,7 +12,7 @@ export function CandidateQuote() {
   return (
     <section
       ref={ref}
-      className="py-24 sm:py-32 bg-primary overflow-hidden"
+      className="py-14 sm:py-20 bg-primary overflow-hidden"
       aria-label="Candidate statement"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

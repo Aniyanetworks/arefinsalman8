@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Hero }               from '../components/Hero'
 import { RootedInCommunity }  from '../components/RootedInCommunity'
-import { CandidateQuote }     from '../components/CandidateQuote'
 import { ListeningTour }      from '../components/ListeningTour'
 import { VideoSection }       from '../components/VideoSection'
 import { DonateGetInvolved }  from '../components/DonateGetInvolved'
@@ -26,7 +25,6 @@ export function Home() {
     <>
       <Hero />
       <RootedInCommunity />
-      <CandidateQuote />
       <ListeningTour />
       <VideoSection />
       <DonateGetInvolved />

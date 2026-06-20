@@ -62,10 +62,10 @@ export function DonateGetInvolved() {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 min-h-[70vh]">
+        <div className="grid lg:grid-cols-2">
 
           {/* ── LEFT: Donate ── */}
-          <div className="py-20 sm:py-24 lg:pr-14 flex flex-col justify-center">
+          <div className="py-12 sm:py-16 lg:pr-14 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -129,7 +129,7 @@ export function DonateGetInvolved() {
           </div>
 
           {/* ── RIGHT: Get Involved form ── */}
-          <div className="py-20 sm:py-24 lg:pl-14 flex flex-col justify-center">
+          <div className="py-12 sm:py-16 lg:pl-14 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
