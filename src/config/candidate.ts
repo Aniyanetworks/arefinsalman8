@@ -3,7 +3,7 @@
 // All candidate details, content, and links live here.
 // Edit this file freely — you never need to touch the components.
 // ─────────────────────────────────────────────────────────────────────────────
-import image from "../assets/Facebook-Cover-Photo-Opt.jpg"
+import image from "../assets/Facebook-Cover-Photo-Opt2.jpg";
 export const config = {
   candidate: {
     // ── Identity ─────────────────────────────────────────────────────────────
@@ -12,7 +12,7 @@ export const config = {
 
     // Candidate headshot — drop file in public/ (e.g. public/candidate.jpg) then set path.
     // Leave empty to show initials placeholder.
-    photo: `${image}`,  // e.g. "/candidate.jpg"
+    photo: `${image}`, // e.g. "/candidate.jpg"
 
     tagline: "Cambridge Deserves Its Fair Share.",
 
@@ -192,10 +192,10 @@ I am committed to being a strong voice for our community, building bridges acros
     description:
       "Across every corner of Cambridge, we are having real conversations. Here is where the campaign stands — and every number represents a neighbour heard.",
     items: [
-      { label: "Handshakes",         value: 0 },
-      { label: "Conversations",      value: 0 },
+      { label: "Handshakes", value: 0 },
+      { label: "Conversations", value: 0 },
       { label: "Businesses Visited", value: 0 },
-      { label: "Doors Knocked",      value: 0 },
+      { label: "Doors Knocked", value: 0 },
     ],
   },
 
@@ -203,9 +203,9 @@ I am committed to being a strong voice for our community, building bridges acros
   contact: {
     email: "hello@salmanarefin.ca",
     social: {
-      twitter:   "https://twitter.com/",
+      twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      facebook:  "https://facebook.com/",
+      facebook: "https://facebook.com/",
     },
   },
 
@@ -249,11 +249,11 @@ I am committed to being a strong voice for our community, building bridges acros
 
   // ── Hero background photo ─────────────────────────────────────────────────
   // Drop a Cambridge city photo in public/ then set the path.
-  heroBackground: "",  // e.g. "/cambridge-bg.jpg"
+  heroBackground: "", // e.g. "/cambridge-bg.jpg"
 
   // ── Hero background video ─────────────────────────────────────────────────
   // Video overrides heroBackground when both are set.
-  heroVideo: "",  // e.g. "/hero-bg.mp4"
+  heroVideo: "", // e.g. "/hero-bg.mp4"
 
   // ── Video section ─────────────────────────────────────────────────────────
   videoSection: {
@@ -262,10 +262,10 @@ I am committed to being a strong voice for our community, building bridges acros
     description:
       "Hear directly from Salman Arefin about the Cambridge he envisions, the problems he's committed to solving, and why the 2026 Regional Council election matters for every family in this city.",
     youtubeUrl: "",
-    vimeoUrl:   "",
+    vimeoUrl: "",
     localVideo: "",
   },
 
   // ── Form webhook ─────────────────────────────────────────────────────────
   webhookUrl: import.meta.env.VITE_FORM_WEBHOOK_URL ?? "",
-}
+};

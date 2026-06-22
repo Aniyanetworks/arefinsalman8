@@ -27,7 +27,8 @@ export function Hero() {
           <img
             src={config.candidate.photo}
             alt={config.candidate.name}
-            className="w-full h-auto block"
+            className="w-full block"
+            style={{ height: 'auto', maxHeight: '620px', objectFit: 'cover', objectPosition: 'center top' }}
           />
         ) : hasBackground ? (
           <img src={config.heroBackground} alt="" className="w-full h-auto block" />
@@ -51,7 +52,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-8"
       >
         <a
           href={config.donation.url}
