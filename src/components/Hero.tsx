@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { config } from '../config/candidate'
+import mobileBanner from '../assets/Social Media Post 04 1080x1350 (1).jpg'
 
 export function Hero() {
   const hasVideo      = Boolean(config.heroVideo)
@@ -45,12 +46,26 @@ export function Hero() {
         <rect width="100%" height="100%" fill="url(#hero-dots)" />
       </svg>
 
-      {/* ── Image card ── */}
+      {/* ── Mobile banner (portrait poster) — hidden on sm+ ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="sm:hidden w-full overflow-hidden"
+      >
+        <img
+          src={mobileBanner}
+          alt={`${config.candidate.name} — Vote for Regional Councillor`}
+          className="w-full h-auto block"
+        />
+      </motion.div>
+
+      {/* ── Desktop image card — hidden on mobile ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative overflow-hidden w-full"
+        className="hidden sm:block relative overflow-hidden w-full"
       >
         {hasVideo ? (
           <video autoPlay muted loop playsInline className="w-full h-auto block">
