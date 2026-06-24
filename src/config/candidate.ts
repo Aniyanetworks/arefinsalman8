@@ -192,16 +192,16 @@ I am committed to being a strong voice for our community, building bridges acros
     description:
       "Across every corner of Cambridge, we are having real conversations. Here is where the campaign stands — and every number represents a neighbour heard.",
     items: [
-      { label: "Handshakes", value: 0 },
-      { label: "Conversations", value: 0 },
-      { label: "Businesses Visited", value: 0 },
-      { label: "Doors Knocked", value: 0 },
+      { label: "Handshakes", value: 248 },
+      { label: "Conversations", value: 135 },
+      { label: "Businesses Visited", value: 42 },
+      { label: "Doors Knocked", value: 310 },
     ],
   },
 
   // ── Contact & social ──────────────────────────────────────────────────────
   contact: {
-    email: "hello@salmanarefin.ca",
+    email: "salman@salmanforregionalcouncillor.ca",
     social: {
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
