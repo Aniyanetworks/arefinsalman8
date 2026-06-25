@@ -159,12 +159,11 @@ export function Footer() {
             <div className="space-y-4">
               <a
                 href={`mailto:${config.contact.email}`}
-                className="flex items-center gap-2.5 text-teal hover:text-teal/70 transition-colors min-w-0"
+                className="flex items-start gap-2.5 text-teal hover:text-teal/70 transition-colors min-w-0"
                 aria-label={`Email ${config.contact.email}`}
-                title={config.contact.email}
               >
-                <Mail size={14} className="flex-shrink-0" aria-hidden="true" />
-                <span className="truncate text-[11px]">{config.contact.email}</span>
+                <Mail size={14} className="flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <span className="text-[11px] break-all leading-relaxed">{config.contact.email}</span>
               </a>
               <div className="flex items-center gap-2.5">
                 <MapPin size={14} className="text-white/25 flex-shrink-0" aria-hidden="true" />
