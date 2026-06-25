@@ -154,7 +154,7 @@ export function Footer() {
           </div>
 
           {/* ── Contact ── */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <p className="text-white/35 text-[10px] font-bold uppercase tracking-[0.22em] mb-4">Contact</p>
             <div className="space-y-4">
               <a
@@ -163,7 +163,7 @@ export function Footer() {
                 aria-label={`Email ${config.contact.email}`}
               >
                 <Mail size={14} className="flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-[11px] break-all leading-relaxed">{config.contact.email}</span>
+                <span className="text-[11px] whitespace-nowrap">{config.contact.email}</span>
               </a>
               <div className="flex items-center gap-2.5">
                 <MapPin size={14} className="text-white/25 flex-shrink-0" aria-hidden="true" />
