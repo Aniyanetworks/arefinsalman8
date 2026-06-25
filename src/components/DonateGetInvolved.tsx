@@ -159,7 +159,7 @@ export function DonateGetInvolved() {
                   <div className="w-9 h-9 rounded-xl bg-teal/15 flex items-center justify-center flex-shrink-0 group-hover:bg-teal/25 transition-colors" aria-hidden="true">
                     <Mail size={15} className="text-teal" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-white/30 text-[10px] uppercase tracking-widest mb-0.5">Email</p>
                     <p className="text-teal text-xs group-hover:text-teal/75 transition-colors break-all">{config.contact.email}</p>
                   </div>
