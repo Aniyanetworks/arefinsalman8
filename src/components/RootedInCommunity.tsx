@@ -64,15 +64,16 @@ export function RootedInCommunity() {
             {/* Headline with word stagger + pulse pill */}
             <h2 id="rooted-heading" className="font-display text-4xl sm:text-5xl font-bold leading-[1.2] mb-6">
               {(['Rooted', 'in'] as const).map((word, i) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.08 + i * 0.1, ease: 'easeOut' }}
-                  className="inline-block text-white mr-[0.28em]"
-                >
-                  {word}
-                </motion.span>
+                <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                  <motion.span
+                    initial={{ y: '110%' }}
+                    animate={inView ? { y: 0 } : {}}
+                    transition={{ duration: 0.55, delay: 0.08 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
+                    className="inline-block text-white"
+                  >
+                    {word}
+                  </motion.span>
+                </span>
               ))}
               <br />
               <motion.span

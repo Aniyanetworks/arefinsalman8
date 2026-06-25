@@ -103,26 +103,29 @@ export function DonateGetInvolved() {
             <Heart size={12} aria-hidden="true" />
             Join the Campaign
           </motion.span>
-          <h2 id="dgi-heading" className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.08]">
+          <h2 id="dgi-heading" className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.15]">
             {(["Let's", 'Build', 'Cambridge'] as const).map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 18 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.08 + i * 0.09, ease: 'easeOut' }}
-                className="inline-block text-white mr-[0.28em]"
-              >
-                {word}
-              </motion.span>
+              <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={inView ? { y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: 0.08 + i * 0.09, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-white"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
-            <motion.span
-              initial={{ opacity: 0, y: 18 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
-              className="inline-block text-shimmer"
-            >
-              Together.
-            </motion.span>
+            <span className="inline-block overflow-hidden align-bottom">
+              <motion.span
+                initial={{ y: '110%' }}
+                animate={inView ? { y: 0 } : {}}
+                transition={{ duration: 0.55, delay: 0.35, ease: [0.33, 1, 0.68, 1] }}
+                className="inline-block text-shimmer"
+              >
+                Together.
+              </motion.span>
+            </span>
           </h2>
         </div>
 

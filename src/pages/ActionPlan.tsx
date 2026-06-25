@@ -159,25 +159,28 @@ export function ActionPlan() {
           {/* Two-column: text left, "10" graphic right */}
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center">
             <div>
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] mb-6">
-                <motion.span
-                  initial={{ opacity: 0, y: 22 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.08, ease: 'easeOut' }}
-                  className="inline-block text-white mr-[0.22em]"
-                >
-                  My
-                </motion.span>
-                {(['Action', 'Plan'] as const).map((word, i) => (
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.15] mb-6">
+                <span className="inline-block overflow-hidden align-bottom mr-[0.22em]">
                   <motion.span
-                    key={word}
-                    initial={{ opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.55, delay: 0.2 + i * 0.13, ease: 'easeOut' }}
-                    className="inline-block text-shimmer mr-[0.22em]"
+                    initial={{ y: '110%' }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.55, delay: 0.08, ease: [0.33, 1, 0.68, 1] }}
+                    className="inline-block text-white"
                   >
-                    {word}
+                    My
                   </motion.span>
+                </span>
+                {(['Action', 'Plan'] as const).map((word, i) => (
+                  <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.22em]">
+                    <motion.span
+                      initial={{ y: '110%' }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 0.55, delay: 0.2 + i * 0.13, ease: [0.33, 1, 0.68, 1] }}
+                      className="inline-block text-shimmer"
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
                 ))}
               </h1>
 
@@ -361,28 +364,31 @@ export function ActionPlan() {
           aria-hidden="true"
         />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-5">
+          <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-5 leading-[1.2]">
             {(['Ready', 'to', 'build', 'this', 'Cambridge'] as const).map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: 'easeOut' }}
-                className="inline-block text-white mr-[0.28em]"
-              >
-                {word}
-              </motion.span>
+              <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.08, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-white"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
-              className="inline-block text-shimmer"
-            >
-              together?
-            </motion.span>
+            <span className="inline-block overflow-hidden align-bottom">
+              <motion.span
+                initial={{ y: '110%' }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+                className="inline-block text-shimmer"
+              >
+                together?
+              </motion.span>
+            </span>
           </p>
           <p className="text-muted text-lg mb-10 leading-relaxed">
             Join the campaign, support our work, or reach out directly.

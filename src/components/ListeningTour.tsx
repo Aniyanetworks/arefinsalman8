@@ -131,28 +131,30 @@ export function ListeningTour() {
             Out in the Community
           </motion.div>
 
-          <h2 id="tour-heading" className="font-display text-4xl sm:text-5xl font-bold leading-[1.08] mb-5">
+          <h2 id="tour-heading" className="font-display text-4xl sm:text-5xl font-bold leading-[1.15] mb-5">
             {(['The', 'Cambridge'] as const).map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.08 + i * 0.1, ease: 'easeOut' }}
-                className="inline-block text-white mr-[0.28em]"
-              >
-                {word}
-              </motion.span>
+              <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={inView ? { y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: 0.08 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-white"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
             {(['Listening', 'Tour'] as const).map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.28 + i * 0.1, ease: 'easeOut' }}
-                className="inline-block text-shimmer mr-[0.28em]"
-              >
-                {word}
-              </motion.span>
+              <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={inView ? { y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: 0.28 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-shimmer"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
           </h2>
 

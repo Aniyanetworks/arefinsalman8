@@ -59,23 +59,27 @@ export function MyStory() {
             >
               Who I Am
             </motion.p>
-            <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[1.04] mb-5">
-              <motion.span
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
-                className="inline-block text-white mr-[0.22em]"
-              >
-                My
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.18, ease: 'easeOut' }}
-                className="inline-block text-shimmer"
-              >
-                Story
-              </motion.span>
+            <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[1.15] mb-5">
+              <span className="inline-block overflow-hidden align-bottom mr-[0.22em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.08, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-white"
+                >
+                  My
+                </motion.span>
+              </span>
+              <span className="inline-block overflow-hidden align-bottom">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-shimmer"
+                >
+                  Story
+                </motion.span>
+              </span>
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 18 }}
@@ -132,25 +136,29 @@ export function MyStory() {
             >
               About {config.candidate.name.split(' ')[0]}
             </motion.span>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold leading-[1.1] mb-8">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
-                className="block text-white"
-              >
-                A community builder.
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-                className="block text-shimmer"
-              >
-                A committed advocate.
-              </motion.span>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold leading-[1.2] mb-8">
+              <span className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: 0.08, ease: [0.33, 1, 0.68, 1] }}
+                  className="block text-white"
+                >
+                  A community builder.
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: 0.22, ease: [0.33, 1, 0.68, 1] }}
+                  className="block text-shimmer"
+                >
+                  A committed advocate.
+                </motion.span>
+              </span>
             </h2>
 
             <motion.div
@@ -214,28 +222,31 @@ export function MyStory() {
 
         {/* ── CTA ── */}
         <div className="text-center">
-          <p className="font-display text-3xl sm:text-4xl font-bold mb-3">
+          <p className="font-display text-3xl sm:text-4xl font-bold mb-3 leading-[1.2]">
             {(['Ready', 'to', 'work'] as const).map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.09, ease: 'easeOut' }}
-                className="inline-block text-white mr-[0.28em]"
-              >
-                {word}
-              </motion.span>
+              <span key={word} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.09, ease: [0.33, 1, 0.68, 1] }}
+                  className="inline-block text-white"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.27, ease: 'easeOut' }}
-              className="inline-block text-shimmer"
-            >
-              together?
-            </motion.span>
+            <span className="inline-block overflow-hidden align-bottom">
+              <motion.span
+                initial={{ y: '110%' }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.27, ease: [0.33, 1, 0.68, 1] }}
+                className="inline-block text-shimmer"
+              >
+                together?
+              </motion.span>
+            </span>
           </p>
           <p className="text-muted text-lg mb-8">Join the movement building a stronger Cambridge.</p>
           <div className="flex flex-wrap justify-center gap-4">
