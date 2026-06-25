@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { config } from '../config/candidate'
-import mobileBanner from '../assets/Social Media Post 04 1080x1350 (1).jpg'
+import mobileBanner from '../assets/mobile.jpg'
 
 function TypewriterText({ text, startDelay = 0.5 }: { text: string; startDelay?: number }) {
   const [displayed, setDisplayed] = useState('')
