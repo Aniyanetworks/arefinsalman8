@@ -47,30 +47,51 @@ export function RootedInCommunity() {
           <div>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45 }}
+              animate={inView ? {
+                opacity: 1, y: 0,
+                textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
+              } : {}}
+              transition={{
+                opacity:    { duration: 0.45 },
+                y:          { duration: 0.45 },
+                textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
+              }}
               className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-5"
             >
               About Salman
             </motion.span>
 
-            {/* Headline with highlighted word */}
-            <motion.h2
-              id="rooted-heading"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="font-display text-4xl sm:text-5xl font-bold leading-[1.2] mb-6"
-            >
-              <span className="text-white">Rooted in </span>
+            {/* Headline with word stagger + pulse pill */}
+            <h2 id="rooted-heading" className="font-display text-4xl sm:text-5xl font-bold leading-[1.2] mb-6">
+              {(['Rooted', 'in'] as const).map((word, i) => (
+                <motion.span
+                  key={word}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.08 + i * 0.1, ease: 'easeOut' }}
+                  className="inline-block text-white mr-[0.28em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
               <br />
-              <span
-                className="text-white px-3 py-1 rounded-lg inline-block mt-2"
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? {
+                  opacity: 1, y: 0,
+                  boxShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 28px rgba(59,196,196,0.45)', '0 0 0px rgba(59,196,196,0)'],
+                } : {}}
+                transition={{
+                  opacity:   { duration: 0.5, delay: 0.28 },
+                  y:         { duration: 0.5, delay: 0.28 },
+                  boxShadow: { duration: 2.5, delay: 0.9, repeat: Infinity, ease: 'easeInOut' },
+                }}
+                className="inline-block text-white px-3 py-1 rounded-lg mt-2"
                 style={{ background: 'linear-gradient(to right, #3BC4C4, #6B2FA0)' }}
               >
                 Community
-              </span>
-            </motion.h2>
+              </motion.span>
+            </h2>
 
             <motion.p
               initial={{ opacity: 0, y: 18 }}

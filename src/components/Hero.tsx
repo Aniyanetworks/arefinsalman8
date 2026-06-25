@@ -1,6 +1,39 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { config } from '../config/candidate'
 import mobileBanner from '../assets/Social Media Post 04 1080x1350 (1).jpg'
+
+function TypewriterText({ text, startDelay = 0.5 }: { text: string; startDelay?: number }) {
+  const [displayed, setDisplayed] = useState('')
+  const [done, setDone] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      let i = 0
+      const iv = setInterval(() => {
+        i++
+        setDisplayed(text.slice(0, i))
+        if (i >= text.length) { clearInterval(iv); setDone(true) }
+      }, 52)
+      return () => clearInterval(iv)
+    }, startDelay * 1000)
+    return () => clearTimeout(t)
+  }, [text, startDelay])
+
+  return (
+    <span>
+      {displayed}
+      {!done && (
+        <motion.span
+          aria-hidden="true"
+          className="inline-block w-[2px] h-[0.8em] bg-teal/70 ml-0.5 align-middle rounded-sm"
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 0.65, repeat: Infinity }}
+        />
+      )}
+    </span>
+  )
+}
 
 export function Hero() {
   const hasVideo      = Boolean(config.heroVideo)
@@ -48,9 +81,9 @@ export function Hero() {
 
       {/* ── Mobile banner (portrait poster) — hidden on sm+ ── */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        initial={{ opacity: 0, scale: 1.06 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
         className="sm:hidden w-full overflow-hidden"
       >
         <img
@@ -117,14 +150,14 @@ export function Hero() {
           />
         </div>
 
-        {/* Tagline */}
+        {/* Tagline — typewriter reveal */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.45 }}
           className="text-center text-muted/60 text-sm font-medium tracking-[0.12em] uppercase mb-6 relative"
         >
-          {config.candidate.tagline}
+          <TypewriterText text={config.candidate.tagline} startDelay={0.55} />
         </motion.p>
 
         {/* Buttons */}

@@ -116,26 +116,45 @@ export function ListeningTour() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4 }}
+            animate={inView ? {
+              opacity: 1, y: 0,
+              textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
+            } : {}}
+            transition={{
+              opacity:    { duration: 0.4 },
+              y:          { duration: 0.4 },
+              textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
+            }}
             className="inline-flex items-center gap-2 text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
           >
             <MapPin size={13} aria-hidden="true" />
             Out in the Community
           </motion.div>
 
-          <motion.h2
-            id="tour-heading"
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="font-display text-4xl sm:text-5xl font-bold leading-[1.08] mb-5"
-          >
-            <span className="text-white">The Cambridge </span>
-            <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">
-              Listening Tour
-            </span>
-          </motion.h2>
+          <h2 id="tour-heading" className="font-display text-4xl sm:text-5xl font-bold leading-[1.08] mb-5">
+            {(['The', 'Cambridge'] as const).map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.08 + i * 0.1, ease: 'easeOut' }}
+                className="inline-block text-white mr-[0.28em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+            {(['Listening', 'Tour'] as const).map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.28 + i * 0.1, ease: 'easeOut' }}
+                className="inline-block text-shimmer mr-[0.28em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h2>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}

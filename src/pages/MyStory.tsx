@@ -4,14 +4,6 @@ import { CheckCircle2, ArrowLeft, Quote } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { config } from '../config/candidate'
 
-function fadeUp(delay = 0) {
-  return {
-    initial:    { opacity: 0, y: 28 },
-    animate:    { opacity: 1, y: 0 },
-    transition: { duration: 0.6, delay, ease: 'easeOut' as const },
-  }
-}
-
 export function MyStory() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -52,14 +44,45 @@ export function MyStory() {
         {/* ── Hero row ── */}
         <div className="grid lg:grid-cols-2 gap-10 items-center mb-20">
           <div>
-            <motion.p {...fadeUp(0)} className="text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{
+                opacity: 1, y: 0,
+                textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
+              }}
+              transition={{
+                opacity:    { duration: 0.45 },
+                y:          { duration: 0.45 },
+                textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className="text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-4"
+            >
               Who I Am
             </motion.p>
-            <motion.h1 {...fadeUp(0.08)} className="font-display text-5xl sm:text-6xl font-bold leading-[1.04] mb-5">
-              <span className="text-white">My </span>
-              <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Story</span>
-            </motion.h1>
-            <motion.p {...fadeUp(0.16)} className="text-muted text-lg leading-relaxed max-w-md">
+            <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[1.04] mb-5">
+              <motion.span
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+                className="inline-block text-white mr-[0.22em]"
+              >
+                My
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.18, ease: 'easeOut' }}
+                className="inline-block text-shimmer"
+              >
+                Story
+              </motion.span>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+              className="text-muted text-lg leading-relaxed max-w-md"
+            >
               A community builder, a committed advocate, and a Cambridge resident who knows what's at stake in 2026.
             </motion.p>
           </div>
@@ -93,22 +116,62 @@ export function MyStory() {
 
           {/* Bio */}
           <div>
-            <motion.span {...fadeUp(0)} className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{
+                opacity: 1, y: 0,
+                textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
+              }}
+              viewport={{ once: true }}
+              transition={{
+                opacity:    { duration: 0.45 },
+                y:          { duration: 0.45 },
+                textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-5"
+            >
               About {config.candidate.name.split(' ')[0]}
             </motion.span>
-            <motion.h2 {...fadeUp(0.08)} className="font-display text-4xl sm:text-5xl font-bold leading-[1.1] mb-8">
-              <span className="text-white">A community builder.</span>
-              <br />
-              <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">A committed advocate.</span>
-            </motion.h2>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold leading-[1.1] mb-8">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+                className="block text-white"
+              >
+                A community builder.
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+                className="block text-shimmer"
+              >
+                A committed advocate.
+              </motion.span>
+            </h2>
 
-            <motion.div {...fadeUp(0.16)} className="space-y-5 mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.1, ease: 'easeOut' }}
+              className="space-y-5 mb-10"
+            >
               {config.candidate.bio.split('\n\n').map((para, i) => (
                 <p key={i} className="text-muted text-base leading-relaxed">{para}</p>
               ))}
             </motion.div>
 
-            <motion.blockquote {...fadeUp(0.28)} className="border-l-[3px] border-teal pl-6 py-1">
+            <motion.blockquote
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.22, ease: 'easeOut' }}
+              className="border-l-[3px] border-teal pl-6 py-1"
+            >
               <Quote size={18} className="text-teal/40 mb-2" aria-hidden="true" />
               <p className="font-display text-lg text-white/75 italic leading-relaxed">
                 {config.candidate.whyRunning}
@@ -117,7 +180,13 @@ export function MyStory() {
           </div>
 
           {/* Highlights */}
-          <motion.div {...fadeUp(0.12)} className="sticky top-24">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.08, ease: 'easeOut' }}
+            className="sticky top-24"
+          >
             <div
               className="relative rounded-3xl overflow-hidden border border-white/[0.08] shadow-xl"
               style={{ background: 'linear-gradient(135deg, #3BC4C4 0%, #1E3A8A 55%, #0A1F5C 100%)' }}
@@ -145,14 +214,29 @@ export function MyStory() {
 
         {/* ── CTA ── */}
         <div className="text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="font-display text-3xl sm:text-4xl font-bold mb-3"
-          >
-            <span className="text-white">Ready to work </span>
-            <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">together?</span>
-          </motion.p>
+          <p className="font-display text-3xl sm:text-4xl font-bold mb-3">
+            {(['Ready', 'to', 'work'] as const).map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.09, ease: 'easeOut' }}
+                className="inline-block text-white mr-[0.28em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.27, ease: 'easeOut' }}
+              className="inline-block text-shimmer"
+            >
+              together?
+            </motion.span>
+          </p>
           <p className="text-muted text-lg mb-8">Join the movement building a stronger Cambridge.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/action-plan" className="inline-flex items-center bg-cta hover:bg-cta/90 text-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg">

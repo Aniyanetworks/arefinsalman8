@@ -103,18 +103,27 @@ export function DonateGetInvolved() {
             <Heart size={12} aria-hidden="true" />
             Join the Campaign
           </motion.span>
-          <motion.h2
-            id="dgi-heading"
-            initial={{ opacity: 0, y: 18 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.08]"
-          >
-            Let's Build Cambridge{' '}
-            <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">
+          <h2 id="dgi-heading" className="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.08]">
+            {(["Let's", 'Build', 'Cambridge'] as const).map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 18 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.08 + i * 0.09, ease: 'easeOut' }}
+                className="inline-block text-white mr-[0.28em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+            <motion.span
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
+              className="inline-block text-shimmer"
+            >
               Together.
-            </span>
-          </motion.h2>
+            </motion.span>
+          </h2>
         </div>
 
         {/* Main card */}
