@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
-  Heart, Send, Loader2, ExternalLink,
+  Heart, Send, Loader2,
   Twitter, Instagram, Facebook,
   User, Mail, MapPin, MessageSquare,
 } from 'lucide-react'
 import { config } from '../config/candidate'
+import { useDonate } from './DonateModal'
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 interface FormData { name: string; email: string; postalCode: string; message: string }
@@ -39,8 +40,9 @@ function IconInput({
 }
 
 export function DonateGetInvolved() {
-  const ref    = useRef<HTMLElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const ref          = useRef<HTMLElement>(null)
+  const inView       = useInView(ref, { once: true, margin: '-80px' })
+  const { openDonate } = useDonate()
 
   const [status, setStatus] = useState<FormStatus>('idle')
   const [form,   setForm]   = useState<FormData>(EMPTY)
@@ -205,17 +207,13 @@ export function DonateGetInvolved() {
             {/* Donate CTA at bottom */}
             <div className="relative z-10 mt-8 pt-8 border-t border-white/[0.08]">
               <p className="text-white/35 text-xs mb-3">Want to support financially?</p>
-              <a
-                href={config.donation.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Donate to the campaign (opens in a new tab)"
+              <button
+                onClick={openDonate}
                 className="group inline-flex items-center gap-2 bg-cta hover:bg-cta/90 text-primary-dark px-6 py-3 rounded-full font-bold text-sm transition-all shadow-cta hover:shadow-cta-lg"
               >
                 <Heart size={15} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                 Donate Today
-                <ExternalLink size={12} className="opacity-60" aria-hidden="true" />
-              </a>
+              </button>
             </div>
           </div>
 

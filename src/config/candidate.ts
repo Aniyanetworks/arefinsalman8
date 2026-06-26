@@ -211,7 +211,17 @@ I am committed to being a strong voice for our community, building bridges acros
 
   // ── Donation ─────────────────────────────────────────────────────────────
   donation: {
-    url: "https://example.com/donate",
+    url: "/donate",
+    // Each tier links to its own Stripe payment page.
+    // Fill in stripeUrl for each amount once the client provides the links.
+    tiers: [
+      { amount: 25,   display: '$25',    badge: '',         stripeUrl: '' },
+      { amount: 50,   display: '$50',    badge: '',         stripeUrl: '' },
+      { amount: 100,  display: '$100',   badge: 'Popular',  stripeUrl: '' },
+      { amount: 250,  display: '$250',   badge: '',         stripeUrl: '' },
+      { amount: 500,  display: '$500',   badge: '',         stripeUrl: '' },
+      { amount: 1200, display: '$1,200', badge: 'Maximum',  stripeUrl: '' },
+    ],
     note: "Contribution limits apply under the Ontario Municipal Elections Act, 1996. Contributions are not tax-deductible.",
     rules: [
       {

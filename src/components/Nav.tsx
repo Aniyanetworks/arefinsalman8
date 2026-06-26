@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { config } from '../config/candidate'
+import { useDonate } from './DonateModal'
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const location  = useLocation()
-  const navigate  = useNavigate()
+  const location     = useLocation()
+  const navigate     = useNavigate()
+  const { openDonate } = useDonate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -68,14 +70,12 @@ export function Nav() {
           <Link to="/action-plan" className={linkCls} role="listitem">Action Plan</Link>
           <button onClick={() => scrollToSection('#video')}        className={linkCls}>Watch</button>
           <button onClick={() => scrollToSection('#get-involved')} className={linkCls}>Contact</button>
-          <a
-            href={config.donation.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openDonate}
             className="bg-cta hover:bg-cta/90 text-primary-dark px-5 py-2 rounded-full text-sm font-bold transition-all shadow-cta hover:shadow-cta-lg"
           >
             Donate
-          </a>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -132,15 +132,13 @@ export function Nav() {
               >
                 Contact
               </button>
-              <a
-                href={config.donation.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => { setMenuOpen(false); openDonate() }}
                 role="menuitem"
-                className="mt-4 mb-2 bg-cta hover:bg-cta/90 text-primary-dark py-3 rounded-full font-bold transition-all text-center shadow-cta"
+                className="mt-4 mb-2 bg-cta hover:bg-cta/90 text-primary-dark py-3 rounded-full font-bold transition-all text-center shadow-cta w-full"
               >
                 Donate Today
-              </a>
+              </button>
             </div>
           </motion.div>
         )}

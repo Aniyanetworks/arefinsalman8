@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { config } from '../config/candidate'
+import { useDonate } from './DonateModal'
 import mobileBanner from '../assets/banner.jpg'
 
 function TypewriterText({ text, startDelay = 0.5 }: { text: string; startDelay?: number }) {
@@ -36,6 +37,7 @@ function TypewriterText({ text, startDelay = 0.5 }: { text: string; startDelay?:
 }
 
 export function Hero() {
+  const { openDonate } = useDonate()
   const hasVideo      = Boolean(config.heroVideo)
   const hasBackground = Boolean(config.heroBackground)
   const hasPhoto      = Boolean(config.candidate.photo)
@@ -167,14 +169,12 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center relative"
         >
-          <a
-            href={config.donation.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openDonate}
             className="inline-flex items-center justify-center bg-cta hover:bg-cta/90 text-primary-dark px-10 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg w-full sm:w-auto"
           >
             Donate Today
-          </a>
+          </button>
           <a
             href="#get-involved"
             onClick={e => {

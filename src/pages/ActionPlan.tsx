@@ -7,6 +7,7 @@ import {
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { config } from '../config/candidate'
+import { useDonate } from '../components/DonateModal'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Megaphone, Scale, Bus, Home, Shield, GraduationCap, Heart, TreePine, Brain, MessageSquare,
@@ -106,6 +107,7 @@ function PriorityCard({
 
 export function ActionPlan() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
+  const { openDonate } = useDonate()
 
   return (
     <div className="min-h-screen">
@@ -198,7 +200,7 @@ export function ActionPlan() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-              className="hidden lg:flex items-center justify-center relative w-56 h-56 flex-shrink-0"
+              className="flex items-center justify-center relative w-36 h-36 sm:w-48 sm:h-48 lg:w-56 lg:h-56 flex-shrink-0 mx-auto lg:mx-0"
               aria-hidden="true"
             >
               {/* Outer pulsing rings */}
@@ -394,14 +396,12 @@ export function ActionPlan() {
             Join the campaign, support our work, or reach out directly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={config.donation.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openDonate}
               className="inline-flex items-center bg-cta hover:bg-cta/90 text-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-cta hover:shadow-cta-lg"
             >
               Donate Today
-            </a>
+            </button>
             <Link
               to="/"
               state={{ scrollTo: 'get-involved' }}

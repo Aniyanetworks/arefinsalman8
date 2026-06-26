@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, MapPin, Twitter, Instagram, Facebook, ArrowUpRight, Heart } from 'lucide-react'
 import { config } from '../config/candidate'
+import { useDonate } from './DonateModal'
 
 function NavLink({ to, label, external }: { to: string; label: string; external?: boolean }) {
   return (
@@ -23,8 +24,9 @@ function NavLink({ to, label, external }: { to: string; label: string; external?
 }
 
 export function Footer() {
-  const year     = new Date().getFullYear()
-  const navigate = useNavigate()
+  const year         = new Date().getFullYear()
+  const navigate     = useNavigate()
+  const { openDonate } = useDonate()
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
@@ -121,16 +123,13 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <a
-                  href={config.donation.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={openDonate}
                   className="group inline-flex items-center gap-2 text-white/45 hover:text-teal text-sm transition-colors"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-white/15 group-hover:bg-teal group-hover:scale-125 transition-all flex-shrink-0" aria-hidden="true" />
                   Donate
-                  <ArrowUpRight size={12} className="opacity-40 group-hover:opacity-70" aria-hidden="true" />
-                </a>
+                </button>
               </li>
               <li>
                 <button
@@ -172,15 +171,13 @@ export function Footer() {
             </div>
 
             {/* Donate pill */}
-            <a
-              href={config.donation.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openDonate}
               className="mt-6 inline-flex items-center gap-1.5 bg-cta/90 hover:bg-cta text-primary-dark text-xs font-bold px-4 py-2 rounded-full transition-all"
             >
               <Heart size={12} aria-hidden="true" />
               Donate Today
-            </a>
+            </button>
           </div>
 
         </div>

@@ -44,21 +44,6 @@ export function MyStory() {
         {/* ── Hero row ── */}
         <div className="grid lg:grid-cols-2 gap-10 items-center mb-20">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{
-                opacity: 1, y: 0,
-                textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
-              }}
-              transition={{
-                opacity:    { duration: 0.45 },
-                y:          { duration: 0.45 },
-                textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              className="text-teal text-xs font-semibold tracking-[0.18em] uppercase mb-4"
-            >
-              Who I Am
-            </motion.p>
             <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[1.15] mb-5">
               <span className="inline-block overflow-hidden align-bottom mr-[0.22em]">
                 <motion.span
