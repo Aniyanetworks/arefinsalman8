@@ -36,9 +36,9 @@ export function RootedInCommunity() {
         <rect width="100%" height="100%" fill="url(#hex-bg)" />
       </svg>
 
-      {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-10 bg-purple pointer-events-none" aria-hidden="true" />
+      {/* Ambient glows — desktop only, large blur-filter too GPU-heavy for mobile Safari */}
+      <div className="hidden sm:block absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-10 bg-purple pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
@@ -47,15 +47,8 @@ export function RootedInCommunity() {
           <div>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
-              animate={inView ? {
-                opacity: 1, y: 0,
-                textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
-              } : {}}
-              transition={{
-                opacity:    { duration: 0.45 },
-                y:          { duration: 0.45 },
-                textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
-              }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.45 }}
               className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-5"
             >
               About Salman
@@ -78,15 +71,8 @@ export function RootedInCommunity() {
               <br />
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? {
-                  opacity: 1, y: 0,
-                  boxShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 28px rgba(59,196,196,0.45)', '0 0 0px rgba(59,196,196,0)'],
-                } : {}}
-                transition={{
-                  opacity:   { duration: 0.5, delay: 0.28 },
-                  y:         { duration: 0.5, delay: 0.28 },
-                  boxShadow: { duration: 2.5, delay: 0.9, repeat: Infinity, ease: 'easeInOut' },
-                }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.28 }}
                 className="inline-block text-white px-3 py-1 rounded-lg mt-2"
                 style={{ background: 'linear-gradient(to right, #3BC4C4, #6B2FA0)' }}
               >

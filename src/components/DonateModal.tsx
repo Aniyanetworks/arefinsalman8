@@ -56,7 +56,7 @@ function Modal({ onClose }: { onClose: () => void }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.93, y: 24 }}
         transition={{ duration: 0.3, ease: [0.33, 1, 0.68, 1] }}
-        className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-white/[0.1]"
+        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-white/[0.1]"
         style={{ background: 'linear-gradient(160deg, #0d2560 0%, #0A1F5C 100%)' }}
         onClick={e => e.stopPropagation()}
       >
@@ -77,7 +77,7 @@ function Modal({ onClose }: { onClose: () => void }) {
           <rect width="100%" height="100%" fill="url(#dm-hex)" />
         </svg>
 
-        <div className="relative z-10 p-6 sm:p-8">
+        <div className="relative z-10 p-7 sm:p-10">
 
           {/* Header */}
           <div className="flex items-start justify-between mb-6">
@@ -86,7 +86,7 @@ function Modal({ onClose }: { onClose: () => void }) {
                 <ShieldCheck size={13} className="text-teal" aria-hidden="true" />
                 <span className="text-teal text-[10px] font-bold tracking-[0.18em] uppercase">Secure Contribution</span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
                 Support the{' '}
                 <span className="text-shimmer">Campaign</span>
               </h2>
@@ -104,7 +104,7 @@ function Modal({ onClose }: { onClose: () => void }) {
           </div>
 
           {/* Amount grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {tiers.map((tier, i) => {
               const s = TIER_STYLES[i % TIER_STYLES.length]
               const isPlaceholder = !tier.stripeUrl
@@ -116,7 +116,7 @@ function Modal({ onClose }: { onClose: () => void }) {
                   key={tier.amount}
                   {...linkProps}
                   className={[
-                    'group relative flex items-center justify-between px-5 py-4 rounded-xl border border-white/[0.09]',
+                    'group relative flex items-center justify-between px-6 py-5 rounded-xl border border-white/[0.09]',
                     'transition-all duration-250 overflow-hidden',
                     isPlaceholder
                       ? 'opacity-60 cursor-not-allowed'

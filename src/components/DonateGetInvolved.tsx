@@ -89,8 +89,8 @@ export function DonateGetInvolved() {
         </defs>
         <rect width="100%" height="100%" fill="url(#dgi-hex)" />
       </svg>
-      <div className="absolute top-0 left-1/3 w-[480px] h-[480px] rounded-full blur-[130px] opacity-[0.07] bg-teal pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 right-1/4 w-[380px] h-[380px] rounded-full blur-[110px] opacity-[0.07] bg-purple pointer-events-none" aria-hidden="true" />
+      <div className="hidden sm:block absolute top-0 left-1/3 w-[480px] h-[480px] rounded-full blur-[130px] opacity-[0.07] bg-teal pointer-events-none" aria-hidden="true" />
+      <div className="hidden sm:block absolute bottom-0 right-1/4 w-[380px] h-[380px] rounded-full blur-[110px] opacity-[0.07] bg-purple pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 

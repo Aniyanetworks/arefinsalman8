@@ -96,4 +96,19 @@
     -webkit-text-fill-color: transparent;
     animation: text-shimmer 4s linear infinite;
   }
+
+  /* Disable continuous shimmer on small screens and for users who prefer reduced motion —
+     both cases skip the GPU-intensive background-position animation */
+  @media (max-width: 639px) {
+    .text-shimmer {
+      animation: none;
+      background-size: auto;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .text-shimmer {
+      animation: none;
+      background-size: auto;
+    }
+  }
 }

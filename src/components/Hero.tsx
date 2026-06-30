@@ -48,9 +48,9 @@ export function Hero() {
       aria-label="Hero"
       className="relative bg-primary-dark flex flex-col pt-20 pb-12 gap-0 overflow-hidden"
     >
-      {/* ── Ambient glow blobs (background layer) ── */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] opacity-15 bg-purple pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
+      {/* ── Ambient glow blobs (background layer) — desktop only, too GPU-heavy for mobile Safari ── */}
+      <div className="hidden sm:block absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] opacity-15 bg-purple pointer-events-none" aria-hidden="true" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
 
       {/* ── Diagonal geometric lines (top-left corner) ── */}
       <svg
@@ -92,6 +92,8 @@ export function Hero() {
           src={mobileBanner}
           alt={`${config.candidate.name} — Vote for Regional Councillor`}
           className="w-full h-auto block"
+          fetchPriority="high"
+          decoding="async"
         />
       </motion.div>
 
@@ -112,6 +114,8 @@ export function Hero() {
             alt={config.candidate.name}
             className="w-full block"
             style={{ height: 'auto', maxHeight: '620px', objectFit: 'cover', objectPosition: 'center top' }}
+            fetchPriority="high"
+            decoding="async"
           />
         ) : hasBackground ? (
           <img src={config.heroBackground} alt="" className="w-full h-auto block" />
@@ -133,8 +137,8 @@ export function Hero() {
       {/* ── CTA area with decorative graphic ── */}
       <div className="relative py-10 px-4 sm:px-8">
 
-        {/* Animated concentric rings (centered behind buttons) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+        {/* Animated concentric rings — desktop only, continuous GPU animations too expensive on mobile Safari */}
+        <div className="absolute inset-0 hidden sm:flex items-center justify-center pointer-events-none" aria-hidden="true">
           {[180, 280, 380, 480].map((size, i) => (
             <motion.div
               key={i}

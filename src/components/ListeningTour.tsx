@@ -106,9 +106,9 @@ export function ListeningTour() {
         <rect width="100%" height="100%" fill="url(#tour-hex)" />
       </svg>
 
-      {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[420px] h-[420px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full blur-[120px] opacity-10 bg-purple pointer-events-none" aria-hidden="true" />
+      {/* Ambient glows — desktop only, large blur-filter too GPU-heavy for mobile Safari */}
+      <div className="hidden sm:block absolute top-0 right-0 w-[420px] h-[420px] rounded-full blur-[120px] opacity-10 bg-teal pointer-events-none" aria-hidden="true" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full blur-[120px] opacity-10 bg-purple pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
@@ -116,15 +116,8 @@ export function ListeningTour() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
-            animate={inView ? {
-              opacity: 1, y: 0,
-              textShadow: ['0 0 0px rgba(59,196,196,0)', '0 0 14px rgba(59,196,196,0.6)', '0 0 0px rgba(59,196,196,0)'],
-            } : {}}
-            transition={{
-              opacity:    { duration: 0.4 },
-              y:          { duration: 0.4 },
-              textShadow: { duration: 2.5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' },
-            }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-2 text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4"
           >
             <MapPin size={13} aria-hidden="true" />
