@@ -157,6 +157,45 @@ function Modal({ onClose }: { onClose: () => void }) {
             })}
           </div>
 
+          {/* E-transfer option */}
+          <div className="border border-white/[0.1] rounded-2xl overflow-hidden mb-5">
+            {/* Header bar */}
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.07]" style={{ background: 'rgba(59,196,196,0.08)' }}>
+              {/* E-transfer icon */}
+              <svg viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-6 flex-shrink-0" aria-hidden="true">
+                <rect x="1" y="1" width="14" height="22" rx="2" stroke="#3BC4C4" strokeWidth="1.5" />
+                <circle cx="8" cy="11" r="3.5" stroke="#3BC4C4" strokeWidth="1.5" />
+                <line x1="5" y1="20" x2="11" y2="20" stroke="#3BC4C4" strokeWidth="1.5" strokeLinecap="round" />
+                <rect x="25" y="5" width="14" height="22" rx="2" stroke="#3BC4C4" strokeWidth="1.5" />
+                <line x1="28" y1="16" x2="36" y2="16" stroke="#3BC4C4" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="28" y1="19" x2="36" y2="19" stroke="#3BC4C4" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M17 9 L23 9" stroke="#3BC4C4" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M21 7 L23 9 L21 11" stroke="#3BC4C4" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-teal text-xs font-bold tracking-wide">Or send an e-transfer</span>
+            </div>
+
+            <div className="px-5 py-4" style={{ background: 'rgba(255,255,255,0.03)' }}>
+              <p className="text-white/50 text-xs mb-1">Send to:</p>
+              <a
+                href="mailto:salman@salmanforregionalcouncillor.ca"
+                className="text-white font-bold text-base break-all hover:text-white/75 transition-colors underline underline-offset-2"
+              >
+                salman@salmanforregionalcouncillor.ca
+              </a>
+
+              {/* Important notice */}
+              <div className="mt-4 rounded-xl px-4 py-3 border border-amber-400/20" style={{ background: 'rgba(251,191,36,0.07)' }}>
+                <p className="text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-1.5">Important</p>
+                <p className="text-amber-200/80 text-xs leading-relaxed">
+                  Ontario election rules require us to collect your{' '}
+                  <strong className="text-amber-200">full legal name, residential address, and email address</strong>{' '}
+                  in the e-transfer message. Contributions missing this information may need to be returned.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Legal note */}
           <p className="text-white/25 text-[10px] leading-relaxed text-center border-t border-white/[0.07] pt-5">
             {config.donation.note}
