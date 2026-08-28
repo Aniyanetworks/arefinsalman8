@@ -193,9 +193,9 @@ I am committed to being a strong voice for our community, building bridges acros
       "Across every corner of Cambridge, we are having real conversations. Here is where the campaign stands — and every number represents a neighbour heard.",
     items: [
       { label: "Handshakes", value: 248 },
-      { label: "Conversations", value: 135 },
+      { label: "Conversations", value: 575 },
       { label: "Businesses Visited", value: 42 },
-      { label: "Doors Knocked", value: 310 },
+      { label: "Doors Knocked", value: 7000 },
     ],
   },
 
