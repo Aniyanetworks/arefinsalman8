@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle2, ArrowLeft, Quote } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { config } from '../config/candidate'
+import promisesImage from '../assets/promises.jpeg'
 
 export function MyStory() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -204,6 +205,19 @@ export function MyStory() {
 
         {/* Thin gradient divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-purple/30 to-transparent mb-20" aria-hidden="true" />
+
+        {/* ── My Promises graphic ── */}
+        <div className="max-w-sm mx-auto mb-20">
+          <motion.img
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            src={promisesImage}
+            alt="My promises — Salman Arefin for Regional Councillor"
+            className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
+          />
+        </div>
 
         {/* ── CTA ── */}
         <div className="text-center">

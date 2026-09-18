@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { config } from '../config/candidate'
 import { useDonate } from '../components/DonateModal'
+import policyImage from '../assets/policy.jpeg'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Megaphone, Scale, Bus, Home, Shield, GraduationCap, Heart, TreePine, Brain, MessageSquare,
@@ -262,6 +263,21 @@ export function ActionPlan() {
               </span>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      {/* ── Policy graphic ── */}
+      <div className="bg-primary-dark pb-20 relative">
+        <div className="max-w-sm mx-auto px-4 sm:px-6">
+          <motion.img
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            src={policyImage}
+            alt="What will change — Salman Arefin's policy highlights"
+            className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
+          />
         </div>
       </div>
 
