@@ -1,9 +1,15 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2, ArrowLeft, Quote } from 'lucide-react'
+import {
+  CheckCircle2, ArrowLeft, Quote,
+  CalendarCheck, MessageCircle, FileText, Reply, type LucideIcon,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { config } from '../config/candidate'
-import promisesImage from '../assets/promises.jpeg'
+
+const PROMISE_ICON_MAP: Record<string, LucideIcon> = {
+  CalendarCheck, MessageCircle, FileText, Reply,
+}
 
 export function MyStory() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -206,17 +212,64 @@ export function MyStory() {
         {/* Thin gradient divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-purple/30 to-transparent mb-20" aria-hidden="true" />
 
-        {/* ── My Promises graphic ── */}
-        <div className="max-w-sm mx-auto mb-20">
-          <motion.img
+        {/* ── My Promises ── */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <span className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-3">
+              Accountability
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+              {config.promises.headline}
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5 mb-6">
+            {config.promises.items.map((item, i) => {
+              const Icon   = PROMISE_ICON_MAP[item.icon]
+              const accent = i % 2 === 0 ? 'teal' : 'purple'
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (i % 2) * 0.1, ease: 'easeOut' }}
+                  className="flex items-start gap-4 bg-white/[0.04] border border-white/[0.08] hover:border-white/20 rounded-2xl p-6 transition-colors"
+                >
+                  <div
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${accent === 'teal' ? 'bg-teal/15' : 'bg-purple/15'}`}
+                    aria-hidden="true"
+                  >
+                    {Icon && <Icon size={20} className={accent === 'teal' ? 'text-teal' : 'text-purple'} aria-hidden="true" />}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-white mb-1.5">{item.title}</h3>
+                    <p className="text-muted text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Two votes callout */}
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            src={promisesImage}
-            alt="My promises — Salman Arefin for Regional Councillor"
-            className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
-          />
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="relative rounded-3xl overflow-hidden border border-white/[0.08] p-8 sm:p-10 text-center"
+            style={{ background: 'linear-gradient(135deg, #6B2FA0 0%, #4A1E7A 55%, #0A1F5C 100%)' }}
+          >
+            <p className="text-white/60 text-xs font-bold tracking-[0.2em] uppercase mb-3">
+              {config.promises.callout.eyebrow}
+            </p>
+            <p className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+              {config.promises.callout.title}
+            </p>
+            <p className="text-white/70 text-base leading-relaxed max-w-md mx-auto">
+              {config.promises.callout.description}
+            </p>
+          </motion.div>
         </div>
 
         {/* ── CTA ── */}

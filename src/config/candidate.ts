@@ -186,6 +186,83 @@ I am committed to being a strong voice for our community, building bridges acros
     },
   ],
 
+  // ── What Will Change (Action Plan page) ───────────────────────────────────
+  // icon: any name from https://lucide.dev/icons
+  whatWillChange: {
+    headline: "What Will Change?",
+    items: [
+      {
+        icon: "Bus",
+        title: "Half-Price Fares",
+        description:
+          "50% off GRT transit for high schoolers and seniors — making everyday travel genuinely affordable.",
+      },
+      {
+        icon: "Scale",
+        title: "Smart Tax Audit",
+        description:
+          "Open the regional books and hunt down waste before asking hardworking taxpayers for a single extra dime.",
+      },
+      {
+        icon: "TrainFront",
+        title: "LRT to Cambridge",
+        description:
+          "Fairly funded — bringing Stage 2 LRT to Cambridge while demanding senior levels of government cover the capital costs, protecting our local property taxes.",
+      },
+      {
+        icon: "Shield",
+        title: "Safe Streets, Strong Support",
+        description:
+          "Nobody should be living in a tent or feel unsafe walking home. I'll push for shelter and treatment beds, and for a visible presence on our streets — because both things have to be true.",
+      },
+      {
+        icon: "Home",
+        title: "Homes People Can Actually Afford",
+        description:
+          "Faster approvals, fewer delays. More starter homes, rentals, and seniors' units built where people want to live.",
+      },
+      {
+        icon: "Baby",
+        title: "Daycare Without the Waitlist",
+        description:
+          "Work with the Region and the province to open new spaces faster and clear permits in weeks, so parents can get back to work.",
+      },
+    ],
+  },
+
+  // ── My Promises (My Story page) ────────────────────────────────────────────
+  // icon: any name from https://lucide.dev/icons
+  promises: {
+    headline: "My Promises",
+    items: [
+      {
+        icon: "CalendarCheck",
+        title: "I'll Show Up",
+        description: "Every meeting. Attendance published quarterly.",
+      },
+      {
+        icon: "MessageCircle",
+        title: "I'll Ask First",
+        description: "Your input before my vote. Every time.",
+      },
+      {
+        icon: "FileText",
+        title: "I'll Show My Work",
+        description: "How I voted and what it cost you, after every meeting.",
+      },
+      {
+        icon: "Reply",
+        title: "I'll Answer",
+        description: "Reply within two business days. Monthly open hours across Cambridge.",
+      },
+    ],
+    callout: {
+      eyebrow: "You have two votes",
+      title: "I'm asking for one.",
+      description: "You've just read exactly what I'll do with one of those seats.",
+    },
+  },
+
   // ── The Cambridge Listening Tour ─────────────────────────────────────────
   // Update these numbers as the campaign grows. Start at 0 — they animate up.
   listeningTour: {

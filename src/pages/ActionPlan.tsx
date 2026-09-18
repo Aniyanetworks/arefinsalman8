@@ -2,16 +2,16 @@ import { useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
   Megaphone, Scale, Bus, Home, Shield, GraduationCap,
-  Heart, TreePine, Brain, MessageSquare, type LucideIcon,
+  Heart, TreePine, Brain, MessageSquare, TrainFront, Baby, type LucideIcon,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { config } from '../config/candidate'
 import { useDonate } from '../components/DonateModal'
-import policyImage from '../assets/policy.jpeg'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Megaphone, Scale, Bus, Home, Shield, GraduationCap, Heart, TreePine, Brain, MessageSquare,
+  TrainFront, Baby,
 }
 
 const CARD_THEMES = [
@@ -40,6 +40,35 @@ const CARD_THEMES = [
     glow:          'bg-purple',
   },
 ]
+
+function ChangeCard({
+  item,
+  index,
+}: {
+  item: (typeof config.whatWillChange.items)[0]
+  index: number
+}) {
+  const ref    = useRef<HTMLElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const Icon   = ICON_MAP[item.icon]
+  const accent = index % 2 === 0 ? 'teal' : 'purple'
+
+  return (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: 'easeOut' }}
+      className="relative bg-white/[0.04] border border-white/[0.08] hover:border-white/20 rounded-2xl p-6 transition-colors"
+    >
+      <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${accent === 'teal' ? 'bg-teal/15' : 'bg-purple/15'}`} aria-hidden="true">
+        {Icon && <Icon size={20} className={accent === 'teal' ? 'text-teal' : 'text-purple'} aria-hidden="true" />}
+      </div>
+      <h3 className="font-display text-lg font-bold text-white mb-2 leading-snug">{item.title}</h3>
+      <p className="text-muted text-sm leading-relaxed">{item.description}</p>
+    </motion.article>
+  )
+}
 
 function PriorityCard({
   priority,
@@ -266,18 +295,22 @@ export function ActionPlan() {
         </div>
       </div>
 
-      {/* ── Policy graphic ── */}
+      {/* ── What Will Change ── */}
       <div className="bg-primary-dark pb-20 relative">
-        <div className="max-w-sm mx-auto px-4 sm:px-6">
-          <motion.img
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            src={policyImage}
-            alt="What will change — Salman Arefin's policy highlights"
-            className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
-          />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-3">
+              The Difference
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+              {config.whatWillChange.headline}
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {config.whatWillChange.items.map((item, i) => (
+              <ChangeCard key={i} item={item} index={i} />
+            ))}
+          </div>
         </div>
       </div>
 
